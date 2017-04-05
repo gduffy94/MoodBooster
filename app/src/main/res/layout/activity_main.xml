@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,8 +11,159 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.garrett.moodbooster.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/rel_layout">
+
+        <TextView
+            android:text="AFRAID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView10"
+            android:layout_below="@+id/imageButton21"
+            android:layout_alignStart="@+id/imageButton21"
+            android:layout_marginStart="28dp"
+            android:textSize="16sp" />
+
+        <TextView
+            android:text="ANGRY"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageButton22"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/textView11"
+            android:textSize="16sp" />
+
+        <TextView
+            android:text="SAD"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/imageButton23"
+            android:layout_marginEnd="26dp"
+            android:id="@+id/textView12"
+            android:layout_below="@+id/imageButton23"
+            android:textSize="16sp" />
+
+        <ImageButton
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/lonely"
+            android:id="@+id/imageButton26"
+            android:background="@android:color/background_light"
+            android:layout_alignTop="@+id/imageButton25"
+            android:layout_alignEnd="@+id/imageButton23"
+            android:layout_width="100dp"
+            android:layout_height="100dp" />
+
+        <TextView
+            android:text="TIRED"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageButton24"
+            android:layout_alignEnd="@+id/textView10"
+            android:id="@+id/textView13"
+            android:textSize="16sp" />
+
+        <TextView
+            android:text="BORED"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageButton25"
+            android:layout_alignStart="@+id/textView11"
+            android:id="@+id/textView14"
+            android:textSize="16sp" />
+
+        <TextView
+            android:text="LONELY"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView15"
+            android:layout_below="@+id/imageButton26"
+            android:layout_alignEnd="@+id/textView12"
+            android:textSize="16sp" />
+
+        <TextView
+            android:text="Settings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView17"
+            android:layout_alignParentBottom="true"
+            android:layout_alignEnd="@+id/imageButton24"
+            android:textSize="16sp" />
+
+        <TextView
+            android:text="My Media"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_toEndOf="@+id/imageButton25"
+            android:layout_marginStart="13dp"
+            android:id="@+id/textView18"
+            android:textSize="16sp" />
+
+        <TextView
+            android:text="What's your mood?"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:id="@+id/textView16"
+            android:textSize="20sp"
+            android:textAlignment="center"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+
+        <ImageButton
+            app:srcCompat="@drawable/angry"
+            android:scaleType="fitXY"
+            android:id="@+id/imageButton22"
+            android:background="@android:color/background_light"
+            android:layout_alignTop="@+id/imageButton21"
+            android:layout_centerHorizontal="true"
+            android:layout_width="100dp"
+            android:layout_height="100dp" />
+
+        <ImageButton
+            app:srcCompat="@drawable/exhausted"
+            android:layout_marginTop="40dp"
+            android:scaleType="fitXY"
+            android:id="@+id/imageButton24"
+            android:background="@android:color/background_light"
+            android:layout_below="@+id/textView10"
+            android:layout_alignEnd="@+id/imageButton21"
+            android:layout_width="100dp"
+            android:layout_height="100dp" />
+
+        <ImageButton
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/afraid"
+            android:layout_marginTop="38dp"
+            android:id="@+id/imageButton21"
+            android:background="@android:color/background_light"
+            android:layout_below="@+id/textView16"
+            android:layout_alignParentStart="true"
+            android:layout_width="100dp"
+            android:layout_height="100dp" />
+
+        <ImageButton
+            app:srcCompat="@drawable/sad"
+            android:scaleType="fitXY"
+            android:id="@+id/imageButton23"
+            android:background="@android:color/background_light"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignTop="@+id/imageButton22"
+            android:layout_alignParentEnd="true" />
+
+        <ImageButton
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/bored"
+            android:id="@+id/imageButton25"
+            android:background="@android:color/background_light"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignTop="@+id/imageButton24"
+            android:layout_alignStart="@+id/imageButton22" />
+
+
+    </RelativeLayout>
 </RelativeLayout>

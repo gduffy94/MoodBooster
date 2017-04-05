@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:text="Still feeling lonely?"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageView"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="41dp"
+            android:id="@+id/textView"
+            android:textSize="20sp" />
+
+        <ImageButton
+            app:srcCompat="@drawable/arrow"
+            android:layout_marginTop="12dp"
+            android:id="@+id/imageButton"
+            android:scaleType="fitXY"
+            android:background="@android:color/background_light"
+            android:layout_below="@+id/textView"
+            android:layout_alignEnd="@+id/textView"
+            android:layout_width="45dp"
+            android:layout_height="35dp" />
+
+        <ImageButton
+            android:layout_width="40dp"
+            android:layout_height="30dp"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/arrow_left"
+            android:id="@+id/imageButton2"
+            android:background="@android:color/background_light"
+            android:layout_alignBottom="@+id/imageButton"
+            android:layout_alignStart="@+id/textView" />
+
+        <Button
+            android:text="Surprise me!"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageButton"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="12dp"
+            android:id="@+id/button" />
+
+        <ImageView
+            app:srcCompat="@drawable/adele"
+            android:id="@+id/imageView"
+            android:scaleType="fitXY"
+            android:layout_marginTop="53dp"
+            android:layout_height="300dp"
+            android:layout_width="450dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true" />
+
+    </RelativeLayout>
+
+</LinearLayout>

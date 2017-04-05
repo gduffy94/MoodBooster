@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            app:srcCompat="@drawable/mad"
+            android:id="@+id/imageView4"
+            android:layout_below="@+id/imageView2"
+            android:layout_alignStart="@+id/imageView2" />
+
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            app:srcCompat="@drawable/quirky"
+            android:id="@+id/imageView5"
+            android:layout_below="@+id/imageView2"
+            android:layout_toEndOf="@+id/imageView4"
+            android:background="@android:color/background_light" />
+
+        <ImageView
+            app:srcCompat="@drawable/smile"
+            android:id="@+id/imageView3"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_alignTop="@+id/imageView2"
+            android:layout_toEndOf="@+id/imageView4" />
+
+        <ImageView
+            app:srcCompat="@drawable/lonely"
+            android:layout_marginStart="44dp"
+            android:layout_marginTop="91dp"
+            android:id="@+id/imageView2"
+            android:background="@android:color/background_light"
+            android:layout_height="150dp"
+            android:layout_width="150dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:text="Mood Booster"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageView4"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/textView2"
+            android:textSize="25sp" />
+    </RelativeLayout>
+
+</LinearLayout>
