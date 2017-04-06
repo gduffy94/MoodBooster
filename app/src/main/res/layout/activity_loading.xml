@@ -10,49 +10,52 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            app:srcCompat="@drawable/mad"
-            android:id="@+id/imageView4"
-            android:layout_below="@+id/imageView2"
-            android:layout_alignStart="@+id/imageView2" />
-
-        <ImageView
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            app:srcCompat="@drawable/quirky"
-            android:id="@+id/imageView5"
-            android:layout_below="@+id/imageView2"
-            android:layout_toEndOf="@+id/imageView4"
-            android:background="@android:color/background_light" />
-
-        <ImageView
-            app:srcCompat="@drawable/smile"
-            android:id="@+id/imageView3"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_alignTop="@+id/imageView2"
-            android:layout_toEndOf="@+id/imageView4" />
-
-        <ImageView
             app:srcCompat="@drawable/lonely"
             android:layout_marginStart="44dp"
             android:layout_marginTop="91dp"
-            android:id="@+id/imageView2"
-            android:background="@android:color/background_light"
-            android:layout_height="150dp"
-            android:layout_width="150dp"
+            android:id="@+id/loading_sad"
+            android:background="@color/colorPrimary"
             android:layout_alignParentTop="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            android:layout_width="125dp"
+            android:layout_height="125dp" />
 
         <TextView
             android:text="Mood Booster"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/imageView4"
+            android:layout_below="@+id/loading_mad"
             android:layout_centerHorizontal="true"
             android:id="@+id/textView2"
             android:textSize="25sp" />
+
+        <ImageView
+            app:srcCompat="@drawable/mad"
+            android:id="@+id/loading_mad"
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:layout_below="@+id/loading_sad"
+            android:layout_alignStart="@+id/loading_sad"
+            android:layout_marginTop="24dp" />
+
+        <ImageView
+            app:srcCompat="@drawable/smile"
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:id="@+id/loading_happy"
+            android:layout_alignTop="@+id/loading_sad"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="37dp"
+            android:background="@drawable/background_color" />
+
+        <ImageView
+            app:srcCompat="@drawable/quirky"
+            android:id="@+id/loading_goofy"
+            android:background="@color/colorPrimary"
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:layout_above="@+id/textView2"
+            android:layout_alignStart="@+id/loading_happy" />
     </RelativeLayout>
 
 </LinearLayout>
