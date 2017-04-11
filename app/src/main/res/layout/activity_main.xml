@@ -89,12 +89,12 @@
             android:id="@+id/textView16"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="98dp"
             android:text="What's your mood?"
             android:textAlignment="center"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:layout_alignParentTop="true"
+            android:layout_toStartOf="@+id/sad_nature" />
 
         <ImageButton
             android:id="@+id/sad_music"

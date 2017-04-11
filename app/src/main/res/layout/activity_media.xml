@@ -13,13 +13,13 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:text="Still feeling sad?"
+            android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/video"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="41dp"
-            android:id="@+id/textView"
+            android:text="Still feeling sad?"
             android:textSize="20sp" />
 
         <ImageButton
@@ -44,20 +44,22 @@
             app:srcCompat="@drawable/ic_arrow_back_black_24dp" />
 
         <Button
-            android:text="Surprise me!"
+            android:id="@+id/button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/nextArrow"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="12dp"
-            android:id="@+id/button" />
+            android:text="Surprise me!"
+            android:background="@color/colorAccent"
+            android:textColor="@color/colorPrimaryDark" />
 
         <ImageView
+            android:id="@+id/video"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="49dp"
             app:srcCompat="@drawable/friends"
-            android:layout_marginTop="83dp"
-            android:id="@+id/video"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true" />
 
