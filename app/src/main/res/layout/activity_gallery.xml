@@ -20,16 +20,6 @@
 
 
         <TextView
-            android:text="Settings"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="74dp"
-            android:id="@+id/textView28"
-            android:textSize="16sp" />
-
-        <TextView
             android:text="Media Library"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

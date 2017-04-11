@@ -26,7 +26,6 @@
     <!-- Base application theme. -->
     <style name="SuperMaterialTheme" parent="Theme.AppCompat.NoActionBar">
 
-
     </style>
 
 </resources>

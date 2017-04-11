@@ -8,7 +8,7 @@
         <item name="android:textColorSecondary">@color/textColorSec</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowBackground">@drawable/background_color</item>
-        <item name="android:navigationBarColor">@color/colorNavigationBar</item>
+        <item name="android:navigationBarColor">@color/colorPrimaryDark</item>
 
     </style>
 

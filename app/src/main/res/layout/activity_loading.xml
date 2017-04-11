@@ -56,6 +56,11 @@
             android:layout_height="125dp"
             android:layout_above="@+id/textView2"
             android:layout_alignStart="@+id/loading_happy" />
+
+        <include android:id="@+id/toolbar" layout="@layout/toolbar"/>
+
     </RelativeLayout>
+
+
 
 </LinearLayout>

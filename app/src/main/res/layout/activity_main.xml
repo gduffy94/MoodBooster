@@ -5,165 +5,150 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.garrett.moodbooster.MainActivity">
 
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+
     <RelativeLayout
+        android:id="@+id/rel_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/rel_layout">
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="14dp">
 
         <TextView
-            android:text="AFRAID"
+            android:id="@+id/main_afraidtext"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/textView10"
-            android:layout_below="@+id/imageButton21"
-            android:layout_alignStart="@+id/imageButton21"
+            android:layout_alignStart="@+id/sad_panda"
+            android:layout_below="@+id/sad_panda"
             android:layout_marginStart="28dp"
+            android:text="AFRAID"
             android:textSize="16sp" />
 
         <TextView
+            android:id="@+id/main_angrytext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/sad_music"
+            android:layout_centerHorizontal="true"
             android:text="ANGRY"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/imageButton22"
-            android:layout_centerHorizontal="true"
-            android:id="@+id/textView11"
             android:textSize="16sp" />
 
         <TextView
-            android:text="SAD"
+            android:id="@+id/main_sadtext"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/imageButton23"
+            android:layout_alignEnd="@+id/sad_nature"
+            android:layout_below="@+id/sad_nature"
             android:layout_marginEnd="26dp"
-            android:id="@+id/textView12"
-            android:layout_below="@+id/imageButton23"
+            android:text="SAD"
             android:textSize="16sp" />
 
         <ImageButton
-            android:scaleType="fitXY"
-            app:srcCompat="@drawable/lonely"
-            android:id="@+id/imageButton26"
-            android:background="@color/colorPrimary"
-            android:layout_alignTop="@+id/imageButton25"
-            android:layout_alignEnd="@+id/imageButton23"
+            android:id="@+id/sad_family"
             android:layout_width="100dp"
-            android:layout_height="100dp" />
+            android:layout_height="100dp"
+            android:layout_alignEnd="@+id/sad_nature"
+            android:layout_alignTop="@+id/sad_exercise"
+            android:background="@color/colorPrimary"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/lonely" />
 
         <TextView
+            android:id="@+id/main_tiredtext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/main_afraidtext"
+            android:layout_below="@+id/sad_recipes"
             android:text="TIRED"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/imageButton24"
-            android:layout_alignEnd="@+id/textView10"
-            android:id="@+id/textView13"
             android:textSize="16sp" />
 
         <TextView
+            android:id="@+id/main_boredtext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/main_angrytext"
+            android:layout_below="@+id/sad_exercise"
             android:text="BORED"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/imageButton25"
-            android:layout_alignStart="@+id/textView11"
-            android:id="@+id/textView14"
             android:textSize="16sp" />
 
         <TextView
+            android:id="@+id/main_lonelytext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/main_sadtext"
+            android:layout_below="@+id/sad_family"
             android:text="LONELY"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView15"
-            android:layout_below="@+id/imageButton26"
-            android:layout_alignEnd="@+id/textView12"
             android:textSize="16sp" />
 
         <TextView
-            android:text="Settings"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView17"
-            android:layout_alignParentBottom="true"
-            android:layout_alignEnd="@+id/imageButton24"
-            android:textSize="16sp" />
-
-        <TextView
-            android:text="My Media"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_toEndOf="@+id/imageButton25"
-            android:layout_marginStart="13dp"
-            android:id="@+id/textView18"
-            android:textSize="16sp" />
-
-        <TextView
-            android:text="What's your mood?"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
             android:id="@+id/textView16"
-            android:textSize="20sp"
-            android:textAlignment="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true" />
-
-        <ImageButton
-            app:srcCompat="@drawable/angry"
-            android:scaleType="fitXY"
-            android:id="@+id/imageButton22"
-            android:background="@color/colorPrimary"
-            android:layout_alignTop="@+id/imageButton21"
             android:layout_centerHorizontal="true"
-            android:layout_width="100dp"
-            android:layout_height="100dp" />
+            android:layout_marginTop="30dp"
+            android:text="What's your mood?"
+            android:textAlignment="center"
+            android:textSize="20sp" />
 
         <ImageButton
-            app:srcCompat="@drawable/exhausted"
+            android:id="@+id/sad_music"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignTop="@+id/sad_panda"
+            android:layout_centerHorizontal="true"
+            android:background="@color/colorPrimary"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/angry" />
+
+        <ImageButton
+            android:id="@+id/sad_recipes"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignEnd="@+id/sad_panda"
+            android:layout_below="@+id/main_afraidtext"
             android:layout_marginTop="40dp"
-            android:scaleType="fitXY"
-            android:id="@+id/imageButton24"
             android:background="@color/colorPrimary"
-            android:layout_below="@+id/textView10"
-            android:layout_alignEnd="@+id/imageButton21"
-            android:layout_width="100dp"
-            android:layout_height="100dp" />
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/exhausted" />
 
         <ImageButton
-            android:scaleType="fitXY"
-            app:srcCompat="@drawable/afraid"
-            android:layout_marginTop="38dp"
-            android:id="@+id/imageButton21"
-            android:background="@color/colorPrimary"
-            android:layout_below="@+id/textView16"
+            android:id="@+id/sad_panda"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:layout_alignParentStart="true"
-            android:layout_width="100dp"
-            android:layout_height="100dp" />
+            android:layout_below="@+id/textView16"
+            android:layout_marginTop="38dp"
+            android:background="@color/colorPrimary"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/afraid" />
 
         <ImageButton
-            app:srcCompat="@drawable/sad"
-            android:scaleType="fitXY"
-            android:id="@+id/imageButton23"
-            android:background="@color/colorPrimary"
+            android:id="@+id/sad_nature"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_alignTop="@+id/imageButton22"
-            android:layout_alignParentEnd="true" />
+            android:layout_alignParentEnd="true"
+            android:layout_alignTop="@+id/sad_music"
+            android:background="@color/colorPrimary"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/sad" />
 
         <ImageButton
-            android:scaleType="fitXY"
-            app:srcCompat="@drawable/bored"
-            android:id="@+id/imageButton25"
-            android:background="@color/colorPrimary"
+            android:id="@+id/sad_exercise"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_alignTop="@+id/imageButton24"
-            android:layout_alignStart="@+id/imageButton22" />
+            android:layout_alignStart="@+id/sad_music"
+            android:layout_alignTop="@+id/sad_recipes"
+            android:background="@color/colorPrimary"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/bored" />
 
 
     </RelativeLayout>
+
 </RelativeLayout>
