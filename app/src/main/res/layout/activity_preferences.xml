@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include android:id="@+id/toolbar" layout="@layout/toolbar"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <ImageButton
+            android:id="@+id/pref_recipes"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignStart="@+id/pref_panda"
+            android:layout_below="@+id/pref_panda"
+            android:layout_marginTop="61dp"
+            android:background="@drawable/background_color"
+            android:cropToPadding="false"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/cupcake" />
+
+        <ImageButton
+            android:id="@+id/pref_panda"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignStart="@+id/pref_title"
+            android:layout_below="@+id/pref_title"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="42dp"
+            android:background="@drawable/background_color"
+            android:cropToPadding="false"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/panda" />
+
+        <ImageButton
+            android:id="@+id/pre_nature"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignTop="@+id/pref_recipes"
+            android:layout_marginStart="38dp"
+            android:layout_toEndOf="@+id/pref_recipes"
+            android:background="@drawable/background_color"
+            android:cropToPadding="false"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/flowers" />
+
+        <TextView
+            android:id="@+id/pref_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="34dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="What makes you less sad?"
+            android:textAlignment="center"
+            android:textColor="@color/colorAccent"
+            android:textSize="24sp" />
+
+        <ImageButton
+            android:id="@+id/pref_music"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignStart="@+id/pre_nature"
+            android:layout_alignTop="@+id/pref_panda"
+            android:background="@drawable/background_color"
+            android:cropToPadding="false"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/music" />
+
+        <ImageButton
+            android:id="@+id/pref1_next"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp"
+            android:background="@color/colorPrimary"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/ic_arrow_forward_black_24dp" />
+    </RelativeLayout>
+
+</LinearLayout>

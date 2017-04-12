@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include android:id="@+id/toolbar" layout="@layout/toolbar"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageButton
+            android:id="@+id/pref_quotes"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/background_color"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/quote"
+            android:layout_marginEnd="33dp"
+            android:layout_alignTop="@+id/pref_exercise"
+            android:layout_alignEnd="@+id/pref_title2" />
+
+        <ImageButton
+            android:id="@+id/pref_exercise"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/background_color"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/exercise"
+            android:layout_marginTop="34dp"
+            android:layout_below="@+id/pref_title2"
+            android:layout_alignStart="@+id/pref_fam" />
+
+        <ImageButton
+            android:id="@+id/pref_fam"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/background_color"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/family"
+            android:layout_marginStart="14dp"
+            android:layout_alignTop="@+id/pref_friends"
+            android:layout_alignStart="@+id/pref_title2" />
+
+        <TextView
+            android:id="@+id/pref_title2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="What makes you less sad?"
+            android:textAlignment="textStart"
+            android:textSize="24sp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="42dp" />
+
+        <ImageButton
+            android:id="@+id/pref_friends"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/background_color"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/friend_group"
+            android:layout_marginTop="61dp"
+            android:layout_below="@+id/pref_exercise"
+            android:layout_alignStart="@+id/pref_quotes" />
+
+        <ImageButton
+            android:id="@+id/pref2_back"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_alignEnd="@+id/pref_fam"
+            android:layout_below="@+id/pref_fam"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="43dp"
+            android:background="@drawable/background_color"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/ic_arrow_back_black_24dp" />
+
+        <ImageButton
+            android:id="@+id/pref2_next"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_alignStart="@+id/pref_friends"
+            android:layout_alignTop="@+id/pref2_back"
+            android:background="@drawable/background_color"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/ic_arrow_forward_black_24dp" />
+
+    </RelativeLayout>
+
+</LinearLayout>
