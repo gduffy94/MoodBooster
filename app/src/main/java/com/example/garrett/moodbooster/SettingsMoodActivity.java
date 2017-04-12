@@ -35,17 +35,14 @@ public class SettingsMoodActivity extends AppCompatActivity implements View.OnCl
     private ImageButton nextArrow;
     private ImageButton backArrow;
 
-    int page = 1;
+    int page;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_preferences);
-
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("MoodBooster");
+        page=1;
+        displayData();
 
 
     }
@@ -113,9 +110,9 @@ public class SettingsMoodActivity extends AppCompatActivity implements View.OnCl
 
     public void nextPage() {
         System.out.println("next page clicked");
-        page = 2;
+        //page = 2;
         setContentView(R.layout.activity_preferences2);
-        displayData();
+        //displayData();
     }
 
     public void previousPage() {
@@ -155,7 +152,7 @@ public class SettingsMoodActivity extends AppCompatActivity implements View.OnCl
             int checkID = getResources().getIdentifier(cDrawableName , "drawable",  getPackageName());
             sad_books.setImageResource(checkID);
         } else if (view == nextArrow) {
-            nextPage();;
+            nextPage();
         }
 
     }
