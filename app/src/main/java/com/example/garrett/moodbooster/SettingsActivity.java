@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -27,6 +28,7 @@ public class SettingsActivity extends AppCompatActivity {
         String sDrawableName = "sad";
         int sadID = getResources().getIdentifier(sDrawableName , "drawable",  getPackageName());
         sad.setImageResource(sadID);
+
 
         sad.setOnClickListener(new View.OnClickListener() {
             // Start new list activity
