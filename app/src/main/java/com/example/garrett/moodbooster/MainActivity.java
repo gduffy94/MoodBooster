@@ -4,13 +4,29 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
-
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity {
+
+    //firebase auth object
+    private FirebaseAuth firebaseAuth;
+    private DatabaseReference mDatabase;
+
+    private String uID;
+    private String email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +36,24 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("MoodBooster");
+
+        //initializing firebase authentication object
+        firebaseAuth = FirebaseAuth.getInstance();
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+
+        //if the user is not logged in
+        //that means current user will return null
+        if(firebaseAuth.getCurrentUser() == null){
+            //closing this activity
+            finish();
+            //starting login activity
+            startActivity(new Intent(this, LoginActivity.class));
+        }
+
+        //getting current user ID and email
+        FirebaseUser user = firebaseAuth.getCurrentUser();
+        uID = user.getUid();
+        email = user.getEmail();
 
         ImageView sad = (ImageView) findViewById(R.id.sad_nature);
         String sDrawableName = "sad";
@@ -48,6 +82,23 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(mainIntent);
             }
         });
+
+        //gather user data from Database
+        final DatabaseReference myRef = mDatabase.child("users");
+        Query query = myRef.orderByChild("email").equalTo(email);
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot messageSnapshot: dataSnapshot.getChildren()) {
+                    String name = (String) messageSnapshot.child("first_name").getValue();
+                    System.out.println("First name: "+ name);
+                    //textViewUserName.setText("Welcome " + name);
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        });
     }
 
     @Override
@@ -68,8 +119,35 @@ public class MainActivity extends AppCompatActivity {
             Intent mainIntent = new Intent(getApplicationContext(),
                     MainActivity.class);
             startActivity(mainIntent);
+        } else if (res_id == R.id.logout) {
+            // Floating Contextual Menu with options
+            View view = (View) findViewById(R.id.activity_main);
+            registerForContextMenu(view);
+            openContextMenu(view);
+            unregisterForContextMenu(view);
         }
+
         return true;
+    }
+
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        //code to inflate floating_contextual_menu
+        getMenuInflater().inflate(R.menu.floating_contextual_menu, menu);
+
+    }
+
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+        int item_id = item.getItemId();
+        if (item_id == R.id.exit) {
+            //to be implemented later
+            firebaseAuth.signOut(); //logging out the user
+            finish(); //closing activity
+            startActivity(new Intent(this, LoginActivity.class)); //return to login
+        }
+        return false;
     }
 
 }

@@ -63,27 +63,27 @@
             android:textSize="16sp" />
 
         <ImageButton
+            android:id="@+id/imageButton10"
             android:layout_width="100dp"
-            app:srcCompat="@drawable/afraid"
+            android:layout_height="100dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
             android:layout_marginStart="15dp"
             android:layout_marginTop="68dp"
+            android:background="@color/windowBackground"
             android:scaleType="fitXY"
-            android:background="@android:color/background_light"
-            android:id="@+id/imageButton10"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentStart="true"
-            android:layout_height="100dp" />
+            app:srcCompat="@drawable/terrified" />
 
         <ImageButton
-            app:srcCompat="@drawable/exhausted"
             android:id="@+id/imageButton13"
-            android:background="@android:color/background_light"
-            android:scaleType="fitXY"
-            android:layout_below="@+id/textView22"
-            android:layout_alignStart="@+id/textView22"
-            android:layout_marginTop="20dp"
             android:layout_width="100dp"
-            android:layout_height="100dp" />
+            android:layout_height="100dp"
+            android:layout_alignStart="@+id/textView22"
+            android:layout_below="@+id/textView22"
+            android:layout_marginTop="20dp"
+            android:background="@color/colorwindowBackground"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/exhausted" />
 
         <TextView
             android:text="TIRED"
@@ -117,45 +117,45 @@
             android:textSize="16sp" />
 
         <ImageButton
-            app:srcCompat="@drawable/angry"
             android:id="@+id/imageButton11"
-            android:background="@android:color/background_light"
-            android:scaleType="fitXY"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_alignTop="@+id/imageButton10"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:background="@color/windowBackground"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/angry" />
 
         <ImageButton
-            app:srcCompat="@drawable/sad"
             android:id="@+id/settings_sad"
-            android:background="@android:color/background_light"
-            android:scaleType="fitXY"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_above="@+id/textView24"
+            android:layout_marginStart="20dp"
             android:layout_toEndOf="@+id/imageButton11"
-            android:layout_marginStart="20dp" />
+            android:background="@color/colorwindowBackground"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/sad" />
 
         <ImageButton
-            app:srcCompat="@drawable/lonely"
             android:id="@+id/imageButton15"
-            android:background="@android:color/background_light"
-            android:scaleType="fitXY"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_above="@+id/textView26"
-            android:layout_alignEnd="@+id/textView24" />
+            android:layout_alignEnd="@+id/textView24"
+            android:background="@color/colorwindowBackground"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/lonely" />
 
         <ImageButton
-            app:srcCompat="@drawable/bored"
             android:id="@+id/imageButton14"
-            android:background="@android:color/background_light"
-            android:scaleType="fitXY"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_alignTop="@+id/imageButton13"
-            android:layout_toStartOf="@+id/textView24" />
+            android:layout_toStartOf="@+id/textView24"
+            android:background="@color/colorwindowBackground"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/bored" />
 
     </RelativeLayout>
 

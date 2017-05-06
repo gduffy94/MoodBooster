@@ -1,6 +1,7 @@
 package com.example.garrett.moodbooster;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -8,10 +9,10 @@ import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
+import android.widget.Button;
+import android.widget.CheckBox;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -23,7 +24,7 @@ import com.google.firebase.database.ValueEventListener;
  * Created by User on 4/11/2017.
  */
 
-public class SettingsActivity extends AppCompatActivity {
+public class SettingsSadActivity extends AppCompatActivity {
 
     //firebase auth object
     private FirebaseAuth firebaseAuth;
@@ -32,14 +33,38 @@ public class SettingsActivity extends AppCompatActivity {
     private String uID;
     private String email;
 
+    private CheckBox animals_cb;
+    private CheckBox music_cb;
+    private CheckBox nature_cb;
+    private CheckBox recipes_cb;
+    private CheckBox exercise_cb;
+    private CheckBox family_cb;
+    private CheckBox friends_cb;
+    private CheckBox quotes_cb;
+    private CheckBox inspire_cb;
+    private CheckBox travel_cb;
+    private CheckBox funny_cb;
+    private CheckBox books_cb;
+
+    private Boolean animals =false;
+    private Boolean music = false;
+    private Boolean nature = false;
+    private Boolean recipes = false;
+    private Boolean exercise = false;
+    private Boolean family = false;
+    private Boolean friends = false;
+    private Boolean quotes = false;
+    private Boolean inspire = false;
+    private Boolean travel = false;
+    private Boolean funny = false;
+    private Boolean books = false;
+
+    private Button saveButton;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_settings);
-
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("MoodBooster");
 
         //initializing firebase authentication object
         firebaseAuth = FirebaseAuth.getInstance();
@@ -59,21 +84,6 @@ public class SettingsActivity extends AppCompatActivity {
         uID = user.getUid();
         email = user.getEmail();
 
-
-        ImageView sad = (ImageView) findViewById(R.id.settings_sad);
-        String sDrawableName = "sad";
-        int sadID = getResources().getIdentifier(sDrawableName , "drawable",  getPackageName());
-        sad.setImageResource(sadID);
-
-        sad.setOnClickListener(new View.OnClickListener() {
-            // Start new list activity
-            public void onClick(View v) {
-                Intent mainIntent = new Intent(getApplicationContext(),
-                        SettingsSadActivity.class);
-                startActivity(mainIntent);
-            }
-        });
-
         //gather user data from Database
         final DatabaseReference myRef = mDatabase.child("users");
         Query query = myRef.orderByChild("email").equalTo(email);
@@ -90,6 +100,69 @@ public class SettingsActivity extends AppCompatActivity {
             public void onCancelled(DatabaseError databaseError) {
             }
         });
+
+        setContentView(R.layout.activity_sad_preferences);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        animals_cb = (CheckBox) findViewById(R.id.animals_checkBox);
+        music_cb = (CheckBox) findViewById(R.id.music_checkBox);
+        nature_cb = (CheckBox) findViewById(R.id.nature_checkBox);
+        recipes_cb = (CheckBox) findViewById(R.id.recipes_checkBox);
+        exercise_cb = (CheckBox) findViewById(R.id.exercise_checkBox);
+        family_cb = (CheckBox) findViewById(R.id.family_checkBox);
+        friends_cb = (CheckBox) findViewById(R.id.friends_checkBox);
+        books_cb = (CheckBox) findViewById(R.id.books_checkBox);
+        quotes_cb = (CheckBox) findViewById(R.id.quotes_checkBox);
+        travel_cb = (CheckBox) findViewById(R.id.travel_checkBox);
+        inspire_cb = (CheckBox) findViewById(R.id.inspire_checkBox);
+        funny_cb = (CheckBox) findViewById(R.id.funny_checkBox);
+
+        //initializing views
+        saveButton = (Button) findViewById(R.id.saveButton);
+        saveButton.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sendUpdate();
+                finish(); //closing activity
+            }
+        });
+
+    }
+
+    public void sendUpdate() {
+
+        if ((animals_cb.isChecked())) {
+            animals = true;
+
+        } if ((music_cb.isChecked())) {
+            music = true;
+        } if ((nature_cb.isChecked())) {
+            nature = true;
+        } if ((recipes_cb.isChecked())) {
+            recipes = true;
+        } if ((exercise_cb.isChecked())) {
+            exercise = true;
+        } if ((family_cb.isChecked())) {
+            family = true;
+        } if ((friends_cb.isChecked())) {
+            friends = true;
+        } if ((books_cb.isChecked())) {
+            books = true;
+        } if ((quotes_cb.isChecked())) {
+            quotes = true;
+        } if ((inspire_cb.isChecked())) {
+            inspire = true;
+        } if ((travel_cb.isChecked())) {
+            travel = true;
+        } if ((funny_cb.isChecked())) {
+            funny = true;
+        }
+
+        SadSettings sadSettings = new SadSettings(animals, music, nature, recipes, exercise, family, friends, books, quotes, inspire, travel, funny);
+        DatabaseReference newRef = mDatabase.child("users").child(uID).child("sadSettings").push();
+        newRef.setValue(sadSettings);
     }
 
     @Override
@@ -140,5 +213,4 @@ public class SettingsActivity extends AppCompatActivity {
         }
         return false;
     }
-
 }

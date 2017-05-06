@@ -17,53 +17,53 @@
             android:background="@drawable/background_color"
             android:scaleType="fitXY"
             app:srcCompat="@drawable/quote"
-            android:layout_marginEnd="33dp"
             android:layout_alignTop="@+id/pref_exercise"
-            android:layout_alignEnd="@+id/pref_title2" />
+            android:layout_alignStart="@+id/pref_friends" />
 
         <ImageButton
             android:id="@+id/pref_exercise"
             android:layout_width="100dp"
             android:layout_height="100dp"
+            android:layout_alignStart="@+id/pref_fam"
+            android:layout_below="@+id/pref_title2"
+            android:layout_marginTop="34dp"
             android:background="@drawable/background_color"
             android:scaleType="fitXY"
-            app:srcCompat="@drawable/exercise"
-            android:layout_marginTop="34dp"
-            android:layout_below="@+id/pref_title2"
-            android:layout_alignStart="@+id/pref_fam" />
+            app:srcCompat="@drawable/exercise" />
 
         <ImageButton
             android:id="@+id/pref_fam"
             android:layout_width="100dp"
             android:layout_height="100dp"
+            android:layout_alignStart="@+id/pref_title2"
+            android:layout_alignTop="@+id/pref_friends"
+            android:layout_marginStart="14dp"
             android:background="@drawable/background_color"
             android:scaleType="fitXY"
-            app:srcCompat="@drawable/family"
-            android:layout_marginStart="14dp"
-            android:layout_alignTop="@+id/pref_friends"
-            android:layout_alignStart="@+id/pref_title2" />
+            app:srcCompat="@drawable/family"/>
 
         <TextView
             android:id="@+id/pref_title2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="What makes you less sad?"
-            android:textAlignment="textStart"
-            android:textSize="24sp"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="42dp" />
+            android:layout_marginTop="42dp"
+            android:text="What makes you less sad?"
+            android:textAlignment="center"
+            android:textSize="24sp" />
 
         <ImageButton
             android:id="@+id/pref_friends"
             android:layout_width="100dp"
             android:layout_height="100dp"
+            android:layout_marginTop="47dp"
             android:background="@drawable/background_color"
             android:scaleType="fitXY"
-            app:srcCompat="@drawable/friend_group"
-            android:layout_marginTop="61dp"
-            android:layout_below="@+id/pref_exercise"
-            android:layout_alignStart="@+id/pref_quotes" />
+            app:srcCompat="@drawable/ic_more_vert_black_24dp"
+            android:layout_below="@+id/text_quotes"
+            android:layout_toEndOf="@+id/pref_fam"
+            android:layout_marginStart="33dp" />
 
         <ImageButton
             android:id="@+id/pref2_back"
@@ -81,11 +81,52 @@
             android:id="@+id/pref2_next"
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:layout_alignStart="@+id/pref_friends"
-            android:layout_alignTop="@+id/pref2_back"
             android:background="@drawable/background_color"
             android:scaleType="fitXY"
-            app:srcCompat="@drawable/ic_arrow_forward_black_24dp" />
+            app:srcCompat="@drawable/ic_arrow_forward_black_24dp"
+            android:layout_alignTop="@+id/pref2_back"
+            android:layout_alignEnd="@+id/pref_friends" />
+
+        <TextView
+            android:id="@+id/text_exercise"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/text_quotes"
+            android:layout_below="@+id/pref_exercise"
+            android:text="Exercise"
+            android:textAlignment="center"
+            android:layout_alignStart="@+id/pref_exercise"
+            android:layout_alignEnd="@+id/pref_exercise" />
+
+        <TextView
+            android:id="@+id/text_quotes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/pref2_next"
+            android:layout_below="@+id/pref_quotes"
+            android:text="Quotes"
+            android:textAlignment="center"
+            android:layout_alignStart="@+id/pref_quotes" />
+
+        <TextView
+            android:id="@+id/text_fam"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/pref_fam"
+            android:text="Family"
+            android:textAlignment="center"
+            android:layout_alignStart="@+id/pref2_back"
+            android:layout_alignEnd="@+id/pref_fam" />
+
+        <TextView
+            android:id="@+id/text_friends"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/text_quotes"
+            android:layout_below="@+id/pref_friends"
+            android:text="Friends"
+            android:textAlignment="center"
+            android:layout_alignEnd="@+id/pref_friends" />
 
     </RelativeLayout>
 

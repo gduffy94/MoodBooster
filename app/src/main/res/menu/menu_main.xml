@@ -15,6 +15,12 @@
         android:icon="@drawable/ic_settings_black_24dp"
         app:showAsAction="always"/>
 
+    <item android:id="@+id/logout"
+        android:orderInCategory="100"
+        android:title="Logout"
+        android:icon="@drawable/ic_more_vert_black_24dp"
+        app:showAsAction="always"/>
+
 
 
 

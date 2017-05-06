@@ -70,12 +70,51 @@
             android:id="@+id/pref3_back"
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:layout_below="@+id/pref_travel"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="18dp"
             android:background="@drawable/background_color"
             android:scaleType="fitXY"
-            app:srcCompat="@drawable/ic_arrow_back_black_24dp" />
+            app:srcCompat="@drawable/ic_arrow_back_black_24dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="12dp" />
+
+        <TextView
+            android:id="@+id/books_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/pref_books"
+            android:text="Books"
+            android:textAlignment="center"
+            android:layout_alignStart="@+id/pref_books"
+            android:layout_alignEnd="@+id/pref_books" />
+
+        <TextView
+            android:id="@+id/inspire_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/pref_kid"
+            android:layout_below="@+id/pref_kid"
+            android:text="Inspiring Videos"
+            android:textAlignment="center" />
+
+        <TextView
+            android:id="@+id/travel_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/pref_travel"
+            android:layout_below="@+id/pref_travel"
+            android:layout_toStartOf="@+id/pref_shark"
+            android:text="Travel"
+            android:textAlignment="center" />
+
+        <TextView
+            android:id="@+id/funny_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/inspire_text"
+            android:layout_alignStart="@+id/pref_shark"
+            android:layout_below="@+id/pref_shark"
+            android:text="Funny Videos"
+            android:textAlignment="center" />
 
     </RelativeLayout>
 

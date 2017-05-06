@@ -8,10 +8,10 @@ import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
+import android.widget.ImageButton;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -20,10 +20,10 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 /**
- * Created by User on 4/11/2017.
+ * Created by User on 5/5/2017.
  */
 
-public class SettingsActivity extends AppCompatActivity {
+public class SettingsMoodActivity2 extends AppCompatActivity implements View.OnClickListener {
 
     //firebase auth object
     private FirebaseAuth firebaseAuth;
@@ -31,15 +31,17 @@ public class SettingsActivity extends AppCompatActivity {
 
     private String uID;
     private String email;
+    private ImageButton sad_exercise;
+    private ImageButton sad_family;
+    private ImageButton sad_friends;
+    private ImageButton sad_quotes;
+
+    private ImageButton nextArrow;
+    private ImageButton backArrow;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_settings);
-
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("MoodBooster");
 
         //initializing firebase authentication object
         firebaseAuth = FirebaseAuth.getInstance();
@@ -59,21 +61,6 @@ public class SettingsActivity extends AppCompatActivity {
         uID = user.getUid();
         email = user.getEmail();
 
-
-        ImageView sad = (ImageView) findViewById(R.id.settings_sad);
-        String sDrawableName = "sad";
-        int sadID = getResources().getIdentifier(sDrawableName , "drawable",  getPackageName());
-        sad.setImageResource(sadID);
-
-        sad.setOnClickListener(new View.OnClickListener() {
-            // Start new list activity
-            public void onClick(View v) {
-                Intent mainIntent = new Intent(getApplicationContext(),
-                        SettingsSadActivity.class);
-                startActivity(mainIntent);
-            }
-        });
-
         //gather user data from Database
         final DatabaseReference myRef = mDatabase.child("users");
         Query query = myRef.orderByChild("email").equalTo(email);
@@ -90,6 +77,29 @@ public class SettingsActivity extends AppCompatActivity {
             public void onCancelled(DatabaseError databaseError) {
             }
         });
+
+        //page=1;
+        //displayData();
+
+        setContentView(R.layout.activity_preferences2);
+        nextArrow = (ImageButton) findViewById(R.id.pref2_next);
+        backArrow = (ImageButton) findViewById(R.id.pref2_back);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        nextArrow.setOnClickListener(this);
+        backArrow.setOnClickListener(this);
+
+        sad_exercise = (ImageButton) findViewById(R.id.pref_exercise);
+        sad_family = (ImageButton) findViewById(R.id.pref_fam);
+        sad_quotes = (ImageButton) findViewById(R.id.pref_quotes);
+        sad_friends = (ImageButton) findViewById(R.id.pref_friends);
+
+        sad_exercise.setOnClickListener(this);
+        sad_family.setOnClickListener(this);
+        sad_friends.setOnClickListener(this);
+        sad_quotes.setOnClickListener(this);
+
     }
 
     @Override
@@ -117,7 +127,6 @@ public class SettingsActivity extends AppCompatActivity {
             openContextMenu(view);
             unregisterForContextMenu(view);
         }
-
         return true;
     }
 
@@ -139,6 +148,30 @@ public class SettingsActivity extends AppCompatActivity {
             startActivity(new Intent(this, LoginActivity.class)); //return to login
         }
         return false;
+    }
+
+    @Override
+    public void onClick(View view) {
+        if(view == sad_exercise){
+            String cDrawableName = "check";
+            int checkID = getResources().getIdentifier(cDrawableName , "drawable",  getPackageName());
+            sad_exercise.setImageResource(checkID);
+        } else if (view == sad_family) {
+            String cDrawableName = "check";
+            int checkID = getResources().getIdentifier(cDrawableName , "drawable",  getPackageName());
+            sad_family.setImageResource(checkID);
+        } else if (view == sad_friends){
+            String cDrawableName = "check";
+            int checkID = getResources().getIdentifier(cDrawableName , "drawable",  getPackageName());
+            sad_friends.setImageResource(checkID);
+        } else if (view == sad_quotes){
+            String cDrawableName = "check";
+            int checkID = getResources().getIdentifier(cDrawableName , "drawable",  getPackageName());
+            sad_quotes.setImageResource(checkID);
+        } else if (view == nextArrow) {
+            //nextPage();
+        }
+
     }
 
 }

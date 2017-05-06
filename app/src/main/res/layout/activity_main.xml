@@ -126,7 +126,7 @@
             android:layout_marginTop="38dp"
             android:background="@color/colorPrimary"
             android:scaleType="fitXY"
-            app:srcCompat="@drawable/afraid" />
+            app:srcCompat="@drawable/terrified" />
 
         <ImageButton
             android:id="@+id/sad_nature"

@@ -8,7 +8,7 @@
     <color name="dark_blue">#08088A </color>
     <color name="black">#000000 </color>
     <color name="textColorSec">#E3F2FD</color>
-    <color name="textColorPrim">#1976D2 </color>
-    <color name="windowBackground">#2196F3</color>
+    <color name="textColorPrim">#1976d2</color>
+    <color name="windowBackground">#2196f3</color>
     <color name="colorNavigationBar">#311B92</color>
 </resources>

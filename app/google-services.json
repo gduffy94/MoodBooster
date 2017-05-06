@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "546385948937",
+    "firebase_url": "https://moodbooster-1fff4.firebaseio.com",
+    "project_id": "moodbooster-1fff4",
+    "storage_bucket": "moodbooster-1fff4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:546385948937:android:0274ab4e3023f9d4",
+        "android_client_info": {
+          "package_name": "com.example.garrett.moodbooster"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "546385948937-ugsot7k0katjdps42b8bhfaeseokr3d7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAwsUBLVsbwEW-bto6BZA9RWuyy5pZIWvo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
