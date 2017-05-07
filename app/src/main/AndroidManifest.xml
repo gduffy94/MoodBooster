@@ -43,7 +43,7 @@
         <activity android:name=".SettingsActivity" >
 
         </activity>
-        <activity android:name=".SettingsSadActivity" >
+        <activity android:name=".SettingsMoodActivity" >
 
         </activity>
 

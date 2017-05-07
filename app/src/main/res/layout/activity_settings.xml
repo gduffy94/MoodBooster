@@ -35,10 +35,10 @@
             android:text="AFRAID"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/imageButton10"
+            android:layout_below="@+id/settings_afraid"
             android:id="@+id/textView22"
-            android:layout_alignStart="@+id/imageButton10"
-            android:layout_alignEnd="@+id/imageButton10"
+            android:layout_alignStart="@+id/settings_afraid"
+            android:layout_alignEnd="@+id/settings_afraid"
             android:textAlignment="center"
             android:textSize="16sp" />
 
@@ -48,7 +48,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/textView23"
             android:textSize="16sp"
-            android:layout_below="@+id/imageButton11"
+            android:layout_below="@+id/settings_angry"
             android:layout_centerHorizontal="true" />
 
         <TextView
@@ -59,11 +59,11 @@
             android:id="@+id/textView24"
             android:layout_alignEnd="@+id/settings_sad"
             android:textAlignment="center"
-            android:layout_toEndOf="@+id/imageButton11"
+            android:layout_toEndOf="@+id/settings_angry"
             android:textSize="16sp" />
 
         <ImageButton
-            android:id="@+id/imageButton10"
+            android:id="@+id/settings_afraid"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_alignParentStart="true"
@@ -75,7 +75,7 @@
             app:srcCompat="@drawable/terrified" />
 
         <ImageButton
-            android:id="@+id/imageButton13"
+            android:id="@+id/settings_tired"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_alignStart="@+id/textView22"
@@ -89,10 +89,10 @@
             android:text="TIRED"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/imageButton13"
+            android:layout_below="@+id/settings_tired"
             android:id="@+id/textView25"
-            android:layout_alignStart="@+id/imageButton13"
-            android:layout_toStartOf="@+id/imageButton14"
+            android:layout_alignStart="@+id/settings_tired"
+            android:layout_toStartOf="@+id/settings_bored"
             android:textAlignment="center"
             android:textSize="16sp" />
 
@@ -103,24 +103,24 @@
             android:layout_centerHorizontal="true"
             android:id="@+id/textView26"
             android:textSize="16sp"
-            android:layout_below="@+id/imageButton14" />
+            android:layout_below="@+id/settings_bored" />
 
         <TextView
             android:text="LONELY"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/imageButton15"
+            android:layout_below="@+id/settings_lonely"
             android:id="@+id/textView27"
-            android:layout_alignEnd="@+id/imageButton15"
-            android:layout_toEndOf="@+id/imageButton14"
+            android:layout_alignEnd="@+id/settings_lonely"
+            android:layout_toEndOf="@+id/settings_bored"
             android:textAlignment="center"
             android:textSize="16sp" />
 
         <ImageButton
-            android:id="@+id/imageButton11"
+            android:id="@+id/settings_angry"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_alignTop="@+id/imageButton10"
+            android:layout_alignTop="@+id/settings_afraid"
             android:layout_centerHorizontal="true"
             android:background="@color/windowBackground"
             android:scaleType="fitXY"
@@ -132,13 +132,13 @@
             android:layout_height="100dp"
             android:layout_above="@+id/textView24"
             android:layout_marginStart="20dp"
-            android:layout_toEndOf="@+id/imageButton11"
+            android:layout_toEndOf="@+id/settings_angry"
             android:background="@color/colorwindowBackground"
             android:scaleType="fitXY"
             app:srcCompat="@drawable/sad" />
 
         <ImageButton
-            android:id="@+id/imageButton15"
+            android:id="@+id/settings_lonely"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_above="@+id/textView26"
@@ -148,10 +148,10 @@
             app:srcCompat="@drawable/lonely" />
 
         <ImageButton
-            android:id="@+id/imageButton14"
+            android:id="@+id/settings_bored"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_alignTop="@+id/imageButton13"
+            android:layout_alignTop="@+id/settings_tired"
             android:layout_toStartOf="@+id/textView24"
             android:background="@color/colorwindowBackground"
             android:scaleType="fitXY"

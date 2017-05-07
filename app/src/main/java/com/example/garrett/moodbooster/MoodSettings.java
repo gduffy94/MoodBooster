@@ -6,7 +6,7 @@ import java.io.Serializable;
  * Created by User on 5/5/2017.
  */
 
-public class SadSettings implements Serializable {
+public class MoodSettings implements Serializable {
     public Boolean animals;
     public Boolean music;
     public Boolean nature;
@@ -20,11 +20,11 @@ public class SadSettings implements Serializable {
     public Boolean travel;
     public Boolean funny;
 
-    public SadSettings() {
-        // Default constructor required for calls to DataSnapshot.getValue(SadSettings.class)
+    public MoodSettings() {
+        // Default constructor required for calls to DataSnapshot.getValue(MoodSettings.class)
     }
 
-    public SadSettings(Boolean animals, Boolean music, Boolean nature, Boolean recipes, Boolean exercise, Boolean family,
+    public MoodSettings(Boolean animals, Boolean music, Boolean nature, Boolean recipes, Boolean exercise, Boolean family,
         Boolean friends, Boolean books, Boolean quotes, Boolean inspire, Boolean travel, Boolean funny) {
         this.music = music;
         this.nature = nature;

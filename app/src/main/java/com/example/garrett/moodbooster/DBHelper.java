@@ -60,7 +60,7 @@ public class DBHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public void insertData(Mood mood) {
+    /*public void insertData(Mood mood) {
         SQLiteDatabase db = getWritableDatabase();
 
         ContentValues contentValues = new ContentValues();
@@ -89,6 +89,6 @@ public class DBHelper extends SQLiteOpenHelper {
         }
 
         db.close();
-    }
+    } */
 
 }

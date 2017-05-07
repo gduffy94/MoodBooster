@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include android:id="@+id/toolbar" layout="@layout/toolbar"/>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <TextView
+            android:id="@+id/titleTb_afraid"
+            android:layout_width="383dp"
+            android:layout_height="112dp"
+            android:layout_marginTop="16dp"
+            android:text="What makes you less afraid?"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginRight="8dp"
+            tools:layout_editor_absoluteX="0dp" />
+
+        <CheckBox
+            android:id="@+id/animals_checkBox_afraid"
+            android:layout_width="175dp"
+            android:layout_height="35dp"
+            android:text="Animals"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/titleTb_afraid"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="67dp" />
+
+        <CheckBox
+            android:id="@+id/music_checkBox_afraid"
+            android:layout_width="191dp"
+            android:layout_height="35dp"
+            android:text="Music"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toRightOf="@+id/animals_checkBox_afraid"
+            app:layout_constraintTop_toBottomOf="@+id/titleTb_afraid"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="67dp" />
+
+        <CheckBox
+            android:id="@+id/nature_checkBox_afraid"
+            android:layout_width="175dp"
+            android:layout_height="35dp"
+            android:text="Nature"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/animals_checkBox_afraid"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="67dp" />
+
+        <CheckBox
+            android:id="@+id/recipes_checkBox"
+            android:layout_width="191dp"
+            android:layout_height="35dp"
+            android:text="Recipes"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toRightOf="@+id/nature_checkBox_afraid"
+            app:layout_constraintTop_toBottomOf="@+id/music_checkBox_afraid"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="67dp" />
+
+        <CheckBox
+            android:id="@+id/exercise_checkBox_afraid"
+            android:layout_width="175dp"
+            android:layout_height="35dp"
+            android:text="Exercise"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nature_checkBox_afraid"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="67dp" />
+
+        <CheckBox
+            android:id="@+id/family_checkBox_afraid"
+            android:layout_width="191dp"
+            android:layout_height="35dp"
+            android:text="Family"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toRightOf="@+id/exercise_checkBox_afraid"
+            app:layout_constraintTop_toBottomOf="@+id/nature_checkBox_afraid"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="67dp" />
+
+        <CheckBox
+            android:id="@+id/friends_checkBox_afraid"
+            android:layout_width="175dp"
+            android:layout_height="35dp"
+            android:text="Friends"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/exercise_checkBox_afraid"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="67dp" />
+
+        <CheckBox
+            android:id="@+id/books_checkBox_afraid"
+            android:layout_width="191dp"
+            android:layout_height="35dp"
+            android:text="Books"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toRightOf="@+id/friends_checkBox_afraid"
+            app:layout_constraintTop_toBottomOf="@+id/exercise_checkBox_afraid"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="67dp" />
+
+        <CheckBox
+            android:id="@+id/quotes_checkBox_afraid"
+            android:layout_width="175dp"
+            android:layout_height="35dp"
+            android:text="Quotes"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/friends_checkBox_afraid"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="67dp" />
+
+        <CheckBox
+            android:id="@+id/inspire_checkBox_afraid"
+            android:layout_width="191dp"
+            android:layout_height="35dp"
+            android:text="Inspiring Videos"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toRightOf="@+id/quotes_checkBox_afraid"
+            app:layout_constraintTop_toBottomOf="@+id/friends_checkBox_afraid"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="67dp" />
+
+        <CheckBox
+            android:id="@+id/travel_checkBox_afraid"
+            android:layout_width="175dp"
+            android:layout_height="35dp"
+            android:text="Traveling"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/quotes_checkBox_afraid"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="67dp" />
+
+        <CheckBox
+            android:id="@+id/funny_checkBox_afraid"
+            android:layout_width="191dp"
+            android:layout_height="35dp"
+            android:text="Funny Videos"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toRightOf="@+id/travel_checkBox_afraid"
+            app:layout_constraintTop_toBottomOf="@+id/quotes_checkBox_afraid"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="67dp" />
+
+        <Button
+            android:id="@+id/saveButton_afraid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:background="@color/colorPrimaryDark"
+            android:text="Save"
+            android:textColor="@color/colorAccent"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            tools:layout_constraintLeft_creator="1"
+            tools:layout_constraintRight_creator="1" />
+
+    </android.support.constraint.ConstraintLayout>
+</LinearLayout>

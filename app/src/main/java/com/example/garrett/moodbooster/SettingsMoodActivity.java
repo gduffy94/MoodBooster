@@ -11,6 +11,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.TextView;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -24,7 +26,7 @@ import com.google.firebase.database.ValueEventListener;
  * Created by User on 4/11/2017.
  */
 
-public class SettingsSadActivity extends AppCompatActivity {
+public class SettingsMoodActivity extends AppCompatActivity {
 
     //firebase auth object
     private FirebaseAuth firebaseAuth;
@@ -58,6 +60,9 @@ public class SettingsSadActivity extends AppCompatActivity {
     private Boolean travel = false;
     private Boolean funny = false;
     private Boolean books = false;
+
+    private TextView title;
+    private String mood;
 
     private Button saveButton;
 
@@ -101,10 +106,16 @@ public class SettingsSadActivity extends AppCompatActivity {
             }
         });
 
-        setContentView(R.layout.activity_sad_preferences);
+        setContentView(R.layout.activity_mood_preferences);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        //get mood
+        mood = getIntent().getStringExtra("mood");
+        System.out.println("mood is " + mood);
+        title = (TextView) findViewById(R.id.titleTb);
+        title.setText("What makes you less " + mood + "?");
 
         animals_cb = (CheckBox) findViewById(R.id.animals_checkBox);
         music_cb = (CheckBox) findViewById(R.id.music_checkBox);
@@ -124,18 +135,17 @@ public class SettingsSadActivity extends AppCompatActivity {
         saveButton.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sendUpdate();
+                sendUpdate(mood);
                 finish(); //closing activity
             }
         });
 
     }
 
-    public void sendUpdate() {
+    public void sendUpdate(String mood) {
 
         if ((animals_cb.isChecked())) {
             animals = true;
-
         } if ((music_cb.isChecked())) {
             music = true;
         } if ((nature_cb.isChecked())) {
@@ -160,9 +170,36 @@ public class SettingsSadActivity extends AppCompatActivity {
             funny = true;
         }
 
-        SadSettings sadSettings = new SadSettings(animals, music, nature, recipes, exercise, family, friends, books, quotes, inspire, travel, funny);
-        DatabaseReference newRef = mDatabase.child("users").child(uID).child("sadSettings").push();
-        newRef.setValue(sadSettings);
+        MoodSettings moodSettings = new MoodSettings(animals, music, nature, recipes, exercise, family, friends, books, quotes, inspire, travel, funny);
+        DatabaseReference newRef = null;
+        if (mood.equals("sad")) {
+
+            newRef = mDatabase.child("users").child(uID).child("sadSettings").push();
+
+        } else if (mood.equals("afraid")) {
+
+            newRef = mDatabase.child("users").child(uID).child("afraidSettings").push();
+
+        } else if (mood.equals("angry")) {
+
+            newRef = mDatabase.child("users").child(uID).child("angrySettings").push();
+
+        } else if (mood.equals("tired")) {
+
+            newRef = mDatabase.child("users").child(uID).child("tiredSettings").push();
+
+        } else if (mood.equals("bored")) {
+
+            newRef = mDatabase.child("users").child(uID).child("boredSettings").push();
+
+        } else if (mood.equals("lonely")) {
+
+            newRef = mDatabase.child("users").child(uID).child("lonelySettings").push();
+            
+        }
+
+        newRef.setValue(moodSettings);
+
     }
 
     @Override

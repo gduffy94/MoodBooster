@@ -2,6 +2,7 @@ package com.example.garrett.moodbooster;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.ContextMenu;
@@ -33,6 +34,13 @@ public class SettingsActivity extends AppCompatActivity {
     private String uID;
     private String email;
 
+    private ImageView sad;
+    private ImageView tired;
+    private ImageView afraid;
+    private ImageView angry;
+    private ImageView lonely;
+    private ImageView bored;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,20 +69,91 @@ public class SettingsActivity extends AppCompatActivity {
         email = user.getEmail();
 
 
-        ImageView sad = (ImageView) findViewById(R.id.settings_sad);
+        sad = (ImageView) findViewById(R.id.settings_sad);
         String sDrawableName = "sad";
         int sadID = getResources().getIdentifier(sDrawableName , "drawable",  getPackageName());
         sad.setImageResource(sadID);
-
-
         sad.setOnClickListener(new View.OnClickListener() {
             // Start new list activity
             public void onClick(View v) {
                 Intent mainIntent = new Intent(getApplicationContext(),
-                        SettingsSadActivity.class);
+                        SettingsMoodActivity.class);
+                mainIntent.putExtra("mood", "sad");
                 startActivity(mainIntent);
             }
         });
+
+        afraid = (ImageView) findViewById(R.id.settings_afraid);
+        String aDrawableName = "terrified";
+        int afraidID = getResources().getIdentifier(aDrawableName , "drawable",  getPackageName());
+        afraid.setImageResource(afraidID);
+        afraid.setOnClickListener(new View.OnClickListener() {
+            // Start new list activity
+            public void onClick(View v) {
+                Intent mainIntent = new Intent(getApplicationContext(),
+                        SettingsMoodActivity.class);
+                mainIntent.putExtra("mood", "afraid");
+                startActivity(mainIntent);
+            }
+        });
+
+        angry = (ImageView) findViewById(R.id.settings_angry);
+        String anDrawableName = "angry";
+        int angryID = getResources().getIdentifier(anDrawableName , "drawable",  getPackageName());
+        angry.setImageResource(angryID);
+        angry.setOnClickListener(new View.OnClickListener() {
+            // Start new list activity
+            public void onClick(View v) {
+                Intent mainIntent = new Intent(getApplicationContext(),
+                        SettingsMoodActivity.class);
+                mainIntent.putExtra("mood", "angry");
+                startActivity(mainIntent);
+            }
+        });
+
+        tired = (ImageView) findViewById(R.id.settings_tired);
+        String tDrawableName = "exhausted";
+        int tID = getResources().getIdentifier(tDrawableName , "drawable",  getPackageName());
+        tired.setImageResource(tID);
+        tired.setOnClickListener(new View.OnClickListener() {
+            // Start new list activity
+            public void onClick(View v) {
+                Intent mainIntent = new Intent(getApplicationContext(),
+                        SettingsMoodActivity.class);
+                mainIntent.putExtra("mood", "tired");
+                startActivity(mainIntent);
+            }
+        });
+
+        bored = (ImageView) findViewById(R.id.settings_bored);
+        String bDrawableName = "bored";
+        int bID = getResources().getIdentifier(bDrawableName , "drawable",  getPackageName());
+        bored.setImageResource(bID);
+        bored.setOnClickListener(new View.OnClickListener() {
+            // Start new list activity
+            public void onClick(View v) {
+                Intent mainIntent = new Intent(getApplicationContext(),
+                        SettingsMoodActivity.class);
+                mainIntent.putExtra("mood", "bored");
+                startActivity(mainIntent);
+            }
+        });
+
+        lonely = (ImageView) findViewById(R.id.settings_lonely);
+        String lDrawableName = "lonely";
+        int lID = getResources().getIdentifier(lDrawableName , "drawable",  getPackageName());
+        lonely.setImageResource(lID);
+        lonely.setOnClickListener(new View.OnClickListener() {
+            // Start new list activity
+            public void onClick(View v) {
+                Intent mainIntent = new Intent(getApplicationContext(),
+                        SettingsMoodActivity.class);
+                mainIntent.putExtra("mood", "lonely");
+                startActivity(mainIntent);
+            }
+        });
+
+
 
         //gather user data from Database
         final DatabaseReference myRef = mDatabase.child("users");
