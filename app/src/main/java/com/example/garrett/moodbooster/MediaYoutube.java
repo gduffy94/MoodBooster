@@ -1,16 +1,23 @@
 package com.example.garrett.moodbooster;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
+
+import java.util.ArrayList;
+import java.util.Random;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.ContextMenu;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.MediaController;
+import android.widget.TextView;
 import android.widget.VideoView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -29,7 +36,6 @@ import com.google.firebase.database.ValueEventListener;
 public class MediaYoutube extends AppCompatActivity implements View.OnClickListener {
     private int choice = 2;
     private ImageButton nextArrow;
-    private ImageButton backArrow;
 
     private String mood;
 
@@ -39,6 +45,8 @@ public class MediaYoutube extends AppCompatActivity implements View.OnClickListe
 
     private String uID;
     private String email;
+
+    private ArrayList<String> prefs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,7 +72,14 @@ public class MediaYoutube extends AppCompatActivity implements View.OnClickListe
 
         mood = getIntent().getStringExtra("mood");
         System.out.println("mood= " + mood);
+        prefs = new ArrayList<String>();
 
+        generatePreferences();
+        //going to have to update to set content view based on choice
+        displayData();
+    }
+
+    public void generatePreferences() {
         //gather user data from Database
         final DatabaseReference myRef = mDatabase.child("users");
         Query query = myRef.orderByChild("email").equalTo(email);
@@ -74,18 +89,28 @@ public class MediaYoutube extends AppCompatActivity implements View.OnClickListe
                 for (DataSnapshot messageSnapshot: dataSnapshot.getChildren()) {
                     String name = (String) messageSnapshot.child("first_name").getValue();
                     System.out.println("First name: "+ name);
+
+                    for (DataSnapshot updateSnapshot : messageSnapshot.child(mood + "Settings").getChildren()) {
+                        Boolean pref = (Boolean) updateSnapshot.getValue();
+                        //System.out.println("Pref: " + pref);
+                        if (pref) {
+                            prefs.add(updateSnapshot.getKey());
+                        }
+                    }
+                    System.out.println("Preference: "+ prefs);
+                    //choose random key word
+
+                    int len = prefs.size();
+                    Random rand = new Random();
+                    choice = rand.nextInt(len);
+                    String keyword = prefs.get(choice);
+                    System.out.println("Keyword= "+ keyword);
                 }
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {
             }
         });
-
-        //going to have to update to set content view based on choice
-        displayData();
-    }
-
-    public void generatePreferences() {
 
     }
 
@@ -98,7 +123,6 @@ public class MediaYoutube extends AppCompatActivity implements View.OnClickListe
         if (choice == 1) {
             setContentView(R.layout.activity_media_youtube);
             nextArrow = (ImageButton) findViewById(R.id.nextArrowYT);
-            backArrow = (ImageButton) findViewById(R.id.backArrowYT);
 
             Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
             setSupportActionBar(toolbar);
@@ -116,7 +140,6 @@ public class MediaYoutube extends AppCompatActivity implements View.OnClickListe
         } else if (choice == 2) {
             setContentView(R.layout.activity_media);
             nextArrow = (ImageButton) findViewById(R.id.nextArrow);
-            backArrow = (ImageButton) findViewById(R.id.backArrow);
 
             Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
             setSupportActionBar(toolbar);
@@ -128,13 +151,10 @@ public class MediaYoutube extends AppCompatActivity implements View.OnClickListe
 
     public void nextPage() {
         System.out.println("next page clicked");
-        choice = 1;
-        setContentView(R.layout.activity_media_youtube);
+        Random rand = new Random();
+        choice = rand.nextInt(3) + 1;
+        //setContentView(R.layout.activity_media_youtube);
         displayData();
-    }
-
-    public void previousPage() {
-
     }
 
     @Override
@@ -155,8 +175,35 @@ public class MediaYoutube extends AppCompatActivity implements View.OnClickListe
             Intent mainIntent = new Intent(getApplicationContext(),
                     MainActivity.class);
             startActivity(mainIntent);
+        } else if (res_id == R.id.logout) {
+            // Floating Contextual Menu with options
+            View view = (View) findViewById(R.id.activity_main);
+            registerForContextMenu(view);
+            openContextMenu(view);
+            unregisterForContextMenu(view);
         }
+
         return true;
+    }
+
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        //code to inflate floating_contextual_menu
+        getMenuInflater().inflate(R.menu.floating_contextual_menu, menu);
+
+    }
+
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+        int item_id = item.getItemId();
+        if (item_id == R.id.exit) {
+            //to be implemented later
+            firebaseAuth.signOut(); //logging out the user
+            finish(); //closing activity
+            startActivity(new Intent(this, LoginActivity.class)); //return to login
+        }
+        return false;
     }
 
 
@@ -164,10 +211,6 @@ public class MediaYoutube extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         if(view == nextArrow){
             nextPage();
-        }
-
-        if(view == backArrow){
-            previousPage();
         }
     }
 

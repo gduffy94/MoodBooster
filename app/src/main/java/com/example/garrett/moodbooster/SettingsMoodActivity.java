@@ -174,31 +174,7 @@ public class SettingsMoodActivity extends AppCompatActivity {
 
         MoodSettings moodSettings = new MoodSettings(animals, music, nature, recipes, exercise, family, friends, books, quotes, inspire, travel, funny);
         Map<String, Object> settingsValues = moodSettings.toMap();
-        DatabaseReference newRef = null;
-        if (mood.equals("sad")) {
-
-            mDatabase.child("users").child(uID).child("sadSettings").updateChildren(settingsValues);
-
-        } else if (mood.equals("afraid")) {
-
-            mDatabase.child("users").child(uID).child("afraidSettings").updateChildren(settingsValues);
-
-        } else if (mood.equals("angry")) {
-
-            mDatabase.child("users").child(uID).child("angrySettings").updateChildren(settingsValues);
-
-        } else if (mood.equals("tired")) {
-
-            mDatabase.child("users").child(uID).child("tiredSettings").updateChildren(settingsValues);
-
-        } else if (mood.equals("bored")) {
-
-            mDatabase.child("users").child(uID).child("boredSettings").updateChildren(settingsValues);
-
-        } else if (mood.equals("lonely")) {
-            mDatabase.child("users").child(uID).child("lonelySettings").updateChildren(settingsValues);
-        }
-
+        mDatabase.child("users").child(uID).child(mood + "Settings").updateChildren(settingsValues);
 
     }
 
@@ -222,7 +198,7 @@ public class SettingsMoodActivity extends AppCompatActivity {
             startActivity(mainIntent);
         } else if (res_id == R.id.logout) {
             // Floating Contextual Menu with options
-            View view = (View) findViewById(R.id.activity_main);
+            View view = (View) findViewById(R.id.activity_mood_preferences);
             registerForContextMenu(view);
             openContextMenu(view);
             unregisterForContextMenu(view);

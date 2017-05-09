@@ -193,7 +193,7 @@ public class SettingsActivity extends AppCompatActivity {
             startActivity(mainIntent);
         } else if (res_id == R.id.logout) {
             // Floating Contextual Menu with options
-            View view = (View) findViewById(R.id.activity_main);
+            View view = (View) findViewById(R.id.activity_settings);
             registerForContextMenu(view);
             openContextMenu(view);
             unregisterForContextMenu(view);

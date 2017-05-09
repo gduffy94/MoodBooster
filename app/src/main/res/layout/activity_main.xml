@@ -23,29 +23,33 @@
             android:id="@+id/main_afraidtext"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/main_afraid"
+            android:layout_alignEnd="@+id/main_afraid"
+            android:layout_alignParentStart="true"
             android:layout_below="@+id/main_afraid"
-            android:layout_marginStart="28dp"
             android:text="AFRAID"
+            android:textAlignment="center"
             android:textSize="16sp" />
 
         <TextView
             android:id="@+id/main_angrytext"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/main_angry"
+            android:layout_alignStart="@+id/main_angry"
             android:layout_below="@+id/main_angry"
-            android:layout_centerHorizontal="true"
             android:text="ANGRY"
+            android:textAlignment="center"
             android:textSize="16sp" />
 
         <TextView
             android:id="@+id/main_sadtext"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/main_sad"
+            android:layout_alignParentEnd="true"
+            android:layout_alignStart="@+id/main_sad"
             android:layout_below="@+id/main_sad"
-            android:layout_marginEnd="26dp"
             android:text="SAD"
+            android:textAlignment="center"
             android:textSize="16sp" />
 
         <ImageButton
@@ -63,17 +67,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignEnd="@+id/main_afraidtext"
+            android:layout_alignParentStart="true"
             android:layout_below="@+id/main_tired"
             android:text="TIRED"
+            android:textAlignment="center"
             android:textSize="16sp" />
 
         <TextView
             android:id="@+id/main_boredtext"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/main_angrytext"
+            android:layout_alignEnd="@+id/main_bored"
+            android:layout_alignStart="@+id/main_bored"
             android:layout_below="@+id/main_bored"
             android:text="BORED"
+            android:textAlignment="center"
             android:textSize="16sp" />
 
         <TextView
@@ -81,8 +89,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignEnd="@+id/main_sadtext"
+            android:layout_alignStart="@+id/main_lonely"
             android:layout_below="@+id/main_lonely"
             android:text="LONELY"
+            android:textAlignment="center"
             android:textSize="16sp" />
 
         <TextView

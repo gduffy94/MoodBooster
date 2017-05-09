@@ -21,13 +21,14 @@
             android:layout_height="125dp" />
 
         <TextView
-            android:text="Mood Booster"
+            android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/loading_mad"
             android:layout_centerHorizontal="true"
-            android:id="@+id/textView2"
-            android:textSize="25sp" />
+            android:layout_marginTop="50dp"
+            android:text="Mood Booster"
+            android:textSize="30sp" />
 
         <ImageView
             app:srcCompat="@drawable/mad"
