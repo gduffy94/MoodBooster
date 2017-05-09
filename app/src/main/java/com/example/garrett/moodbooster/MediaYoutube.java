@@ -1,19 +1,28 @@
 package com.example.garrett.moodbooster;
 
+import android.annotation.TargetApi;
+import android.app.SearchManager;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.net.Uri;
 
 import java.util.ArrayList;
 import java.util.Random;
+
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.ContextMenu;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.webkit.WebResourceRequest;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.MediaController;
@@ -29,6 +38,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import static android.content.ContentValues.TAG;
+
 /**
  * Created by User on 4/6/2017.
  */
@@ -36,8 +47,11 @@ import com.google.firebase.database.ValueEventListener;
 public class MediaYoutube extends AppCompatActivity implements View.OnClickListener {
     private int choice = 2;
     private ImageButton nextArrow;
+    private ImageButton backArrow;
 
-    private String mood;
+    public String mood;
+    public String antiMood="happy";
+    public String keyWord="quotes";
 
     //firebase auth object
     private FirebaseAuth firebaseAuth;
@@ -71,6 +85,7 @@ public class MediaYoutube extends AppCompatActivity implements View.OnClickListe
         email = user.getEmail();
 
         mood = getIntent().getStringExtra("mood");
+        Log.d("Mood", mood);
         System.out.println("mood= " + mood);
         prefs = new ArrayList<String>();
 
@@ -88,7 +103,6 @@ public class MediaYoutube extends AppCompatActivity implements View.OnClickListe
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot messageSnapshot: dataSnapshot.getChildren()) {
                     String name = (String) messageSnapshot.child("first_name").getValue();
-                    System.out.println("First name: "+ name);
 
                     for (DataSnapshot updateSnapshot : messageSnapshot.child(mood + "Settings").getChildren()) {
                         Boolean pref = (Boolean) updateSnapshot.getValue();
@@ -97,25 +111,60 @@ public class MediaYoutube extends AppCompatActivity implements View.OnClickListe
                             prefs.add(updateSnapshot.getKey());
                         }
                     }
-                    System.out.println("Preference: "+ prefs);
+
+                    for(String pref: prefs){
+                        Log.d("PREFSS", pref);
+                    }
                     //choose random key word
 
                     int len = prefs.size();
                     Random rand = new Random();
                     choice = rand.nextInt(len);
                     String keyword = prefs.get(choice);
-                    System.out.println("Keyword= "+ keyword);
+                    setKeyWord(keyword);
+
+                    if(mood.equals("angry")) {
+                        String anti = "calm";
+                        setAntiMood(anti);
+                    } else if (mood.equals("afraid")) {
+                        String anti = "comforting";
+                        setAntiMood(anti);
+
+                    }else if (mood.equals("sad")){
+                        String anti = "happy";
+                        setAntiMood(anti);
+
+                    }else if (mood.equals("tired")){
+                        String anti = "energizing";
+                        setAntiMood(anti);
+
+                    }else if (mood.equals("bored")){
+                        String anti = "exciting";
+                        setAntiMood(anti);
+
+                    }else if (mood.equals("lonely")){
+                        String anti = "loved";
+                        setAntiMood(anti);
+                    }
                 }
             }
+
             @Override
             public void onCancelled(DatabaseError databaseError) {
             }
         });
-
     }
 
     public void gatherData() {
 
+    }
+
+    public void setAntiMood(String anti){
+        antiMood = anti;
+    }
+
+    public void setKeyWord(String key){
+        keyWord = key;
     }
 
     public void displayData() {
@@ -144,6 +193,17 @@ public class MediaYoutube extends AppCompatActivity implements View.OnClickListe
             Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
             setSupportActionBar(toolbar);
             nextArrow.setOnClickListener(this);
+
+            WebView webview = (WebView) findViewById(R.id.webview);
+
+            String url = "https://www.google.com/search?q="+antiMood+"+"+keyWord;
+            webview.setWebViewClient(new MyWebViewClient());
+            webview.getSettings().setJavaScriptEnabled(true);
+            webview.loadUrl(url);
+
+      //      Intent intent = new Intent(Intent.ACTION_WEB_SEARCH);
+       //     intent.putExtra(SearchManager.QUERY, "happy animals");
+        //    startActivity(intent);
         } else if (choice == 3) {
             //quote
         }
@@ -212,6 +272,37 @@ public class MediaYoutube extends AppCompatActivity implements View.OnClickListe
         if(view == nextArrow){
             nextPage();
         }
+    }
+
+    public class MyWebViewClient extends WebViewClient{
+
+        @SuppressWarnings("deprecation")
+        @Override
+        public boolean shouldOverrideUrlLoading(WebView view, String url){
+            final Uri uri = Uri.parse(url);
+            return handleUri(uri);
+        }
+
+        @TargetApi(Build.VERSION_CODES.N)
+        @Override
+        public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request){
+            final Uri uri = request.getUrl();
+            return handleUri(uri);
+        }
+
+
+        public boolean handleUri(final Uri uri){
+            Log.i(TAG, "Uri =" + uri);
+            final String host = uri.getHost();
+            final String scheme = uri.getScheme();
+
+            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+            //startActivity(new Intent(Intent.ACTION_VIEW, uri));
+
+            startActivity(intent);
+            return false;
+        }
+
     }
 
 }
