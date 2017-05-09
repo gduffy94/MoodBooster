@@ -26,6 +26,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.Map;
+
 public class SignUpActivity extends AppCompatActivity implements View.OnClickListener {
     //defining view objects
     private EditText editTextEmail;
@@ -84,6 +86,23 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         User user = new User(first_name, last_name, email, password);
 
         mDatabase.child("users").child(userId).setValue(user);
+
+        //set generic settings as all true
+        DatabaseReference newRef = null;
+
+        MoodSettings moodSettings = new MoodSettings(true, true, true, true, true, true, true, true, true, true, true, true);
+        Map<String, Object> settingsValues = moodSettings.toMap();
+        mDatabase.child("users").child(userId).child("sadSettings").updateChildren(settingsValues);
+
+        mDatabase.child("users").child(userId).child("angrySettings").updateChildren(settingsValues);
+
+        mDatabase.child("users").child(userId).child("afraidSettings").updateChildren(settingsValues);
+
+        mDatabase.child("users").child(userId).child("boredSettings").updateChildren(settingsValues);
+
+        mDatabase.child("users").child(userId).child("tiredSettings").updateChildren(settingsValues);
+
+        mDatabase.child("users").child(userId).child("lonelySettings").updateChildren(settingsValues);
     }
 
     private void registerUser(){

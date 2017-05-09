@@ -23,8 +23,8 @@
             android:id="@+id/main_afraidtext"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/sad_panda"
-            android:layout_below="@+id/sad_panda"
+            android:layout_alignStart="@+id/main_afraid"
+            android:layout_below="@+id/main_afraid"
             android:layout_marginStart="28dp"
             android:text="AFRAID"
             android:textSize="16sp" />
@@ -33,7 +33,7 @@
             android:id="@+id/main_angrytext"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/sad_music"
+            android:layout_below="@+id/main_angry"
             android:layout_centerHorizontal="true"
             android:text="ANGRY"
             android:textSize="16sp" />
@@ -42,18 +42,18 @@
             android:id="@+id/main_sadtext"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/sad_nature"
-            android:layout_below="@+id/sad_nature"
+            android:layout_alignEnd="@+id/main_sad"
+            android:layout_below="@+id/main_sad"
             android:layout_marginEnd="26dp"
             android:text="SAD"
             android:textSize="16sp" />
 
         <ImageButton
-            android:id="@+id/sad_family"
+            android:id="@+id/main_lonely"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_alignEnd="@+id/sad_nature"
-            android:layout_alignTop="@+id/sad_exercise"
+            android:layout_alignEnd="@+id/main_sad"
+            android:layout_alignTop="@+id/main_bored"
             android:background="@color/colorPrimary"
             android:scaleType="fitXY"
             app:srcCompat="@drawable/lonely" />
@@ -63,7 +63,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignEnd="@+id/main_afraidtext"
-            android:layout_below="@+id/sad_recipes"
+            android:layout_below="@+id/main_tired"
             android:text="TIRED"
             android:textSize="16sp" />
 
@@ -72,7 +72,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignStart="@+id/main_angrytext"
-            android:layout_below="@+id/sad_exercise"
+            android:layout_below="@+id/main_bored"
             android:text="BORED"
             android:textSize="16sp" />
 
@@ -81,7 +81,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignEnd="@+id/main_sadtext"
-            android:layout_below="@+id/sad_family"
+            android:layout_below="@+id/main_lonely"
             android:text="LONELY"
             android:textSize="16sp" />
 
@@ -94,23 +94,23 @@
             android:textAlignment="center"
             android:textSize="20sp"
             android:layout_alignParentTop="true"
-            android:layout_toStartOf="@+id/sad_nature" />
+            android:layout_toStartOf="@+id/main_sad" />
 
         <ImageButton
-            android:id="@+id/sad_music"
+            android:id="@+id/main_angry"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_alignTop="@+id/sad_panda"
+            android:layout_alignTop="@+id/main_afraid"
             android:layout_centerHorizontal="true"
             android:background="@color/colorPrimary"
             android:scaleType="fitXY"
             app:srcCompat="@drawable/angry" />
 
         <ImageButton
-            android:id="@+id/sad_recipes"
+            android:id="@+id/main_tired"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_alignEnd="@+id/sad_panda"
+            android:layout_alignEnd="@+id/main_afraid"
             android:layout_below="@+id/main_afraidtext"
             android:layout_marginTop="40dp"
             android:background="@color/colorPrimary"
@@ -118,7 +118,7 @@
             app:srcCompat="@drawable/exhausted" />
 
         <ImageButton
-            android:id="@+id/sad_panda"
+            android:id="@+id/main_afraid"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_alignParentStart="true"
@@ -129,21 +129,21 @@
             app:srcCompat="@drawable/terrified" />
 
         <ImageButton
-            android:id="@+id/sad_nature"
+            android:id="@+id/main_sad"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_alignParentEnd="true"
-            android:layout_alignTop="@+id/sad_music"
+            android:layout_alignTop="@+id/main_angry"
             android:background="@color/colorPrimary"
             android:scaleType="fitXY"
             app:srcCompat="@drawable/sad" />
 
         <ImageButton
-            android:id="@+id/sad_exercise"
+            android:id="@+id/main_bored"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_alignStart="@+id/sad_music"
-            android:layout_alignTop="@+id/sad_recipes"
+            android:layout_alignStart="@+id/main_angry"
+            android:layout_alignTop="@+id/main_tired"
             android:background="@color/colorPrimary"
             android:scaleType="fitXY"
             app:srcCompat="@drawable/bored" />

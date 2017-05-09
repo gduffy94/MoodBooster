@@ -22,6 +22,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.Map;
+
 /**
  * Created by User on 4/11/2017.
  */
@@ -171,34 +173,32 @@ public class SettingsMoodActivity extends AppCompatActivity {
         }
 
         MoodSettings moodSettings = new MoodSettings(animals, music, nature, recipes, exercise, family, friends, books, quotes, inspire, travel, funny);
+        Map<String, Object> settingsValues = moodSettings.toMap();
         DatabaseReference newRef = null;
         if (mood.equals("sad")) {
 
-            newRef = mDatabase.child("users").child(uID).child("sadSettings").push();
+            mDatabase.child("users").child(uID).child("sadSettings").updateChildren(settingsValues);
 
         } else if (mood.equals("afraid")) {
 
-            newRef = mDatabase.child("users").child(uID).child("afraidSettings").push();
+            mDatabase.child("users").child(uID).child("afraidSettings").updateChildren(settingsValues);
 
         } else if (mood.equals("angry")) {
 
-            newRef = mDatabase.child("users").child(uID).child("angrySettings").push();
+            mDatabase.child("users").child(uID).child("angrySettings").updateChildren(settingsValues);
 
         } else if (mood.equals("tired")) {
 
-            newRef = mDatabase.child("users").child(uID).child("tiredSettings").push();
+            mDatabase.child("users").child(uID).child("tiredSettings").updateChildren(settingsValues);
 
         } else if (mood.equals("bored")) {
 
-            newRef = mDatabase.child("users").child(uID).child("boredSettings").push();
+            mDatabase.child("users").child(uID).child("boredSettings").updateChildren(settingsValues);
 
         } else if (mood.equals("lonely")) {
-
-            newRef = mDatabase.child("users").child(uID).child("lonelySettings").push();
-            
+            mDatabase.child("users").child(uID).child("lonelySettings").updateChildren(settingsValues);
         }
 
-        newRef.setValue(moodSettings);
 
     }
 

@@ -11,7 +11,6 @@ import android.view.View;
 import android.widget.ImageView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -27,6 +26,13 @@ public class MainActivity extends AppCompatActivity {
 
     private String uID;
     private String email;
+
+    private ImageView sad;
+    private ImageView angry;
+    private ImageView lonely;
+    private ImageView bored;
+    private ImageView tired;
+    private ImageView afraid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,21 +61,21 @@ public class MainActivity extends AppCompatActivity {
         uID = user.getUid();
         email = user.getEmail();
 
-        ImageView sad = (ImageView) findViewById(R.id.sad_nature);
+        sad = (ImageView) findViewById(R.id.main_sad);
         String sDrawableName = "sad";
         int sadID = getResources().getIdentifier(sDrawableName , "drawable",  getPackageName());
         sad.setImageResource(sadID);
-
         sad.setOnClickListener(new View.OnClickListener() {
             // Start new list activity
             public void onClick(View v) {
                 Intent mainIntent = new Intent(getApplicationContext(),
                         MediaYoutube.class);
+                mainIntent.putExtra("mood", "sad");
                 startActivity(mainIntent);
             }
         });
 
-        ImageView lonely = (ImageView) findViewById(R.id.sad_family);
+        lonely = (ImageView) findViewById(R.id.main_lonely);
         String lDrawableName = "lonely";
         int lonelyID = getResources().getIdentifier(lDrawableName , "drawable",  getPackageName());
         lonely.setImageResource(lonelyID);
@@ -79,6 +85,67 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent mainIntent = new Intent(getApplicationContext(),
                         MediaYoutube.class);
+                mainIntent.putExtra("mood", "lonely");
+                startActivity(mainIntent);
+            }
+        });
+
+        angry = (ImageView) findViewById(R.id.main_angry);
+        String anDrawableName = "angry";
+        int angryID = getResources().getIdentifier(anDrawableName , "drawable",  getPackageName());
+        angry.setImageResource(angryID);
+
+        angry.setOnClickListener(new View.OnClickListener() {
+            // Start new list activity
+            public void onClick(View v) {
+                Intent mainIntent = new Intent(getApplicationContext(),
+                        MediaYoutube.class);
+                mainIntent.putExtra("mood", "angry");
+                startActivity(mainIntent);
+            }
+        });
+
+        afraid = (ImageView) findViewById(R.id.main_afraid);
+        String afDrawableName = "terrified";
+        int afraidID = getResources().getIdentifier(afDrawableName , "drawable",  getPackageName());
+        afraid.setImageResource(afraidID);
+
+        afraid.setOnClickListener(new View.OnClickListener() {
+            // Start new list activity
+            public void onClick(View v) {
+                Intent mainIntent = new Intent(getApplicationContext(),
+                        MediaYoutube.class);
+                mainIntent.putExtra("mood", "afraid");
+                startActivity(mainIntent);
+            }
+        });
+
+        bored = (ImageView) findViewById(R.id.main_bored);
+        String bDrawableName = "bored";
+        int boredID = getResources().getIdentifier(bDrawableName , "drawable",  getPackageName());
+        bored.setImageResource(boredID);
+
+        bored.setOnClickListener(new View.OnClickListener() {
+            // Start new list activity
+            public void onClick(View v) {
+                Intent mainIntent = new Intent(getApplicationContext(),
+                        MediaYoutube.class);
+                mainIntent.putExtra("mood", "bored");
+                startActivity(mainIntent);
+            }
+        });
+
+        tired = (ImageView) findViewById(R.id.main_tired);
+        String tDrawableName = "exhausted";
+        int tiredID = getResources().getIdentifier(tDrawableName , "drawable",  getPackageName());
+        tired.setImageResource(tiredID);
+
+        tired.setOnClickListener(new View.OnClickListener() {
+            // Start new list activity
+            public void onClick(View v) {
+                Intent mainIntent = new Intent(getApplicationContext(),
+                        MediaYoutube.class);
+                mainIntent.putExtra("mood", "tired");
                 startActivity(mainIntent);
             }
         });

@@ -1,6 +1,10 @@
 package com.example.garrett.moodbooster;
 
+import com.google.firebase.database.Exclude;
+
 import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by User on 5/5/2017.
@@ -40,4 +44,22 @@ public class MoodSettings implements Serializable {
         this.funny = funny;
     }
 
+    @Exclude
+    public Map<String, Object> toMap() {
+        HashMap<String, Object> result = new HashMap<>();
+        result.put("music", music);
+        result.put("nature", nature);
+        result.put("animals", animals);
+        result.put("recipes", recipes);
+        result.put("exercise", exercise);
+        result.put("family", family);
+        result.put("friends", friends);
+        result.put("books", books);
+        result.put("quotes", quotes);
+        result.put("inspire", inspire);
+        result.put("travel", travel);
+        result.put("funny", funny);
+
+        return result;
+    }
 }

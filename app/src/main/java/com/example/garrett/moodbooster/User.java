@@ -12,6 +12,7 @@ public class User implements Serializable {
     public String email;
     public String password;
 
+
     public User() {
         // Default constructor required for calls to DataSnapshot.getValue(User.class)
     }
@@ -21,6 +22,7 @@ public class User implements Serializable {
         this.last_name = last_name;
         this.email = email;
         this.password = password;
+        //this.sadSettings = new MoodSettings(true, true, true, true, true, true, true, true, true, true, true, true);
     }
 
 
