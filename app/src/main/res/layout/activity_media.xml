@@ -18,7 +18,7 @@
             android:layout_height="240dp" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/media_question"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/webview"
@@ -33,8 +33,8 @@
             android:layout_width="45dp"
             android:layout_height="35dp"
             android:layout_gravity="center_horizontal"
-            android:layout_alignEnd="@+id/textView"
-            android:layout_below="@+id/textView"
+            android:layout_alignEnd="@+id/media_question"
+            android:layout_below="@+id/media_question"
             android:layout_marginTop="12dp"
             android:background="@color/colorPrimary"
             android:scaleType="fitXY"
