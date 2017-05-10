@@ -46,8 +46,8 @@ import static android.content.ContentValues.TAG;
 
 public class MediaYoutube extends AppCompatActivity implements View.OnClickListener {
     private int choice = 2;
+    private int page = 2;
     private ImageButton nextArrow;
-    private ImageButton backArrow;
 
     public String mood;
     public String antiMood;
@@ -91,7 +91,6 @@ public class MediaYoutube extends AppCompatActivity implements View.OnClickListe
 
         generatePreferences();
         //going to have to update to set content view based on choice
-        displayData();
     }
 
     public void generatePreferences() {
@@ -146,6 +145,9 @@ public class MediaYoutube extends AppCompatActivity implements View.OnClickListe
                         String anti = "loved";
                         setAntiMood(anti);
                     }
+
+                    displayData();
+
                 }
             }
 
@@ -153,10 +155,6 @@ public class MediaYoutube extends AppCompatActivity implements View.OnClickListe
             public void onCancelled(DatabaseError databaseError) {
             }
         });
-    }
-
-    public void gatherData() {
-
     }
 
     public void setAntiMood(String anti){
@@ -169,7 +167,9 @@ public class MediaYoutube extends AppCompatActivity implements View.OnClickListe
 
     public void displayData() {
 
-        if (choice == 1) {
+        System.out.println("display data");
+
+        if (page == 1) {
             setContentView(R.layout.activity_media_youtube);
             nextArrow = (ImageButton) findViewById(R.id.nextArrowYT);
 
@@ -186,7 +186,7 @@ public class MediaYoutube extends AppCompatActivity implements View.OnClickListe
             videoView.requestFocus();
             videoView.start();
 
-        } else if (choice == 2) {
+        } else if (page == 2) {
             setContentView(R.layout.activity_media);
             nextArrow = (ImageButton) findViewById(R.id.nextArrow);
 
@@ -195,26 +195,19 @@ public class MediaYoutube extends AppCompatActivity implements View.OnClickListe
             nextArrow.setOnClickListener(this);
 
             WebView webview = (WebView) findViewById(R.id.webview);
-
             String url = "https://www.google.com/search?q="+antiMood+"+"+keyWord;
             webview.setWebViewClient(new MyWebViewClient());
             webview.getSettings().setJavaScriptEnabled(true);
             webview.loadUrl(url);
 
-      //      Intent intent = new Intent(Intent.ACTION_WEB_SEARCH);
-       //     intent.putExtra(SearchManager.QUERY, "happy animals");
-        //    startActivity(intent);
-        } else if (choice == 3) {
-            //quote
         }
     }
 
     public void nextPage() {
         System.out.println("next page clicked");
         Random rand = new Random();
-        choice = rand.nextInt(3) + 1;
-        //setContentView(R.layout.activity_media_youtube);
-        displayData();
+        page = rand.nextInt(2) + 1;
+        generatePreferences();
     }
 
     @Override
