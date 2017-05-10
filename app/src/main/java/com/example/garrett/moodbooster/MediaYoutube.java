@@ -50,7 +50,7 @@ public class MediaYoutube extends AppCompatActivity implements View.OnClickListe
     private ImageButton backArrow;
 
     public String mood;
-    public String antiMood="happy";
+    public String antiMood;
     public String keyWord="quotes";
 
     //firebase auth object

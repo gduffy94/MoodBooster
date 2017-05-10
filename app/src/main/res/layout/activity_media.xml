@@ -8,26 +8,20 @@
         android:id="@+id/toolbar"
         layout="@layout/toolbar" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:orientation="vertical"
-        android:layout_height="match_parent">
-
-        <ImageView
-            android:id="@+id/video"
+        <WebView
+            android:id="@+id/webview"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_gravity="center_horizontal"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="49dp"
-            app:srcCompat="@drawable/friends" />
+            android:layout_height="240dp" />
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/video"
+            android:layout_below="@+id/webview"
             android:layout_centerHorizontal="true"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="41dp"
@@ -46,7 +40,5 @@
             android:scaleType="fitXY"
             app:srcCompat="@drawable/ic_arrow_forward_black_24dp" />
 
-
-    </LinearLayout>
 
 </LinearLayout>
