@@ -75,45 +75,46 @@ public class MediaYoutube extends AppCompatActivity implements View.OnClickListe
         firebaseAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
+
         Random rand = new Random();
         page = rand.nextInt(2) + 1;
 
         //store htmls of youtube videos to pull up
-        htmls.add("https://www.youtube.com/watch?v=rzhv3Q2HkbU");
-        htmls.add("https://www.youtube.com/watch?v=wNYcqj8A1Tg");
-        htmls.add("https://www.youtube.com/watch?v=r3fE6FQT82s");
-        htmls.add("https://www.youtube.com/watch?v=JD-6z3pSRs0");
-        htmls.add("https://www.youtube.com/watch?v=dEzbdLn2bJc");
-        htmls.add("https://www.youtube.com/watch?v=EFnv8az8cVE");
-        htmls.add("https://www.youtube.com/watch?v=1k_bPhglhZk");
-        htmls.add("https://www.youtube.com/watch?v=4lqZDJnOsFc");
-        htmls.add("https://www.youtube.com/watch?v=q1mAGQAw3Oc");
-        htmls.add("https://www.youtube.com/watch?v=nfWlot6h_JM&list=PLsVEeDqau8ajMwMIIDn92SdkNsSIZEU5L");
-        htmls.add("https://www.youtube.com/watch?v=QGJuMBdaqIw&index=6&list=PLsVEeDqau8ajMwMIIDn92SdkNsSIZEU5L");
-        htmls.add("https://www.youtube.com/watch?v=1k8craCGpgs&list=PLsVEeDqau8ajMwMIIDn92SdkNsSIZEU5L&index=22");
-        htmls.add("https://www.youtube.com/watch?v=gGdGFtwCNBE&index=35&list=PLsVEeDqau8ajMwMIIDn92SdkNsSIZEU5L");
-        htmls.add("https://www.youtube.com/watch?v=K0ibBPhiaG0");
-        htmls.add("https://www.youtube.com/watch?v=lp-EO5I60KA");
-        htmls.add("https://www.youtube.com/watch?v=AclhwQKlgfw");
-        htmls.add("https://www.youtube.com/watch?v=78nyMHLONqo");
-        htmls.add("https://www.youtube.com/watch?v=mX50lA_n0l0");
-        htmls.add("https://www.youtube.com/watch?v=i944XxUXkzs");
-        htmls.add("https://www.youtube.com/watch?v=-D8MOeH9oYk");
-        htmls.add("https://www.youtube.com/watch?v=dfR_LdA3fPI");
-        htmls.add("https://www.youtube.com/watch?v=6vQgHBugHxA");
-        htmls.add("https://www.youtube.com/watch?v=mNHq7T9YHHs");
-        htmls.add("https://www.youtube.com/watch?v=qWy_aOlB45Y");
-        htmls.add("https://www.youtube.com/watch?v=1919eTCoESo");
-        htmls.add("https://www.youtube.com/watch?v=NTEDDmCjd1k");
-        htmls.add("https://www.youtube.com/watch?v=bqxxtxXWMsM");
-        htmls.add("https://www.youtube.com/watch?v=mgmVOuLgFB0");
-        htmls.add("https://www.youtube.com/watch?v=g-jwWYX7Jlo");
-        htmls.add("https://www.youtube.com/watch?v=m5yCOSHeYn4");
-        htmls.add("https://www.youtube.com/watch?v=l-gQLqv9f4o");
-        htmls.add("https://www.youtube.com/watch?v=1Za8BtLgKv8");
-        htmls.add("https://www.youtube.com/watch?v=OPdbdjctx2I");
-        htmls.add("https://www.youtube.com/watch?v=2ihOXaU0I8o");
-        htmls.add("https://www.youtube.com/watch?v=Nck6BZga7TQ");
+        htmls.add("https://www.youtube.com/embed/rzhv3Q2HkbU");
+        htmls.add("https://www.youtube.com/embed/wNYcqj8A1Tg"); //good
+        htmls.add("https://www.youtube.com/embed/r3fE6FQT82s");
+        htmls.add("https://www.youtube.com/embed/JD-6z3pSRs0");
+        htmls.add("https://www.youtube.com/embed/dEzbdLn2bJc");
+        htmls.add("https://www.youtube.com/embed/EFnv8az8cVE");
+        htmls.add("https://www.youtube.com/embed/1k_bPhglhZk"); //Good
+        htmls.add("https://www.youtube.com/embed/4lqZDJnOsFc");
+        htmls.add("https://www.youtube.com/embed/q1mAGQAw3Oc"); //good
+   //     htmls.add("https://www.youtube.com/embed/nfWlot6h_JM&list=PLsVEeDqau8ajMwMIIDn92SdkNsSIZEU5L"); //bad
+   //     htmls.add("https://www.youtube.com/embed/QGJuMBdaqIw&index=6&list=PLsVEeDqau8ajMwMIIDn92SdkNsSIZEU5L");
+   //     htmls.add("https://www.youtube.com/embed/1k8craCGpgs&list=PLsVEeDqau8ajMwMIIDn92SdkNsSIZEU5L&index=22"); // bad
+   //     htmls.add("https://www.youtube.com/embed/gGdGFtwCNBE&index=35&list=PLsVEeDqau8ajMwMIIDn92SdkNsSIZEU5L");
+        htmls.add("https://www.youtube.com/embed/K0ibBPhiaG0");
+        htmls.add("https://www.youtube.com/embed/lp-EO5I60KA");
+        htmls.add("https://www.youtube.com/embed/AclhwQKlgfw");
+        htmls.add("https://www.youtube.com/embed/78nyMHLONqo");
+        htmls.add("https://www.youtube.com/embed/mX50lA_n0l0"); //good
+        htmls.add("https://www.youtube.com/embed/i944XxUXkzs");
+        htmls.add("https://www.youtube.com/embed/-D8MOeH9oYk"); //good
+        htmls.add("https://www.youtube.com/embed/dfR_LdA3fPI"); //good
+        htmls.add("https://www.youtube.com/embed/6vQgHBugHxA");
+        htmls.add("https://www.youtube.com/embed/mNHq7T9YHHs");
+        htmls.add("https://www.youtube.com/embed/qWy_aOlB45Y");
+        htmls.add("https://www.youtube.com/embed/1919eTCoESo");
+        htmls.add("https://www.youtube.com/embed/NTEDDmCjd1k"); //good
+        htmls.add("https://www.youtube.com/embed/bqxxtxXWMsM");
+        htmls.add("https://www.youtube.com/embed/mgmVOuLgFB0");
+        htmls.add("https://www.youtube.com/embed/g-jwWYX7Jlo"); //good
+        htmls.add("https://www.youtube.com/embed/m5yCOSHeYn4");
+        htmls.add("https://www.youtube.com/embed/l-gQLqv9f4o"); //good
+        htmls.add("https://www.youtube.com/embed/1Za8BtLgKv8");
+        htmls.add("https://www.youtube.com/embed/OPdbdjctx2I");
+        htmls.add("https://www.youtube.com/embed/2ihOXaU0I8o");
+        htmls.add("https://www.youtube.com/embed/Nck6BZga7TQ");
 
         //if the user is not logged in
         //that means current user will return null
@@ -219,8 +220,10 @@ public class MediaYoutube extends AppCompatActivity implements View.OnClickListe
             nextArrow.setOnClickListener(this);
 
             Random rand = new Random();
-            int html_index = rand.nextInt(htmls.size()) + 1;
+
+            int html_index = rand.nextInt(htmls.size());
             String html = htmls.get(html_index);
+            Log.d("html2", html);
             String frameVideo = "<html><body>Video from YouTube<br><iframe width=\"340\" height=\"300\" src=\""+ html + "\" frameborder=\"0\" allowfullscreen></body></html>";
             WebView videoView =(WebView)findViewById(R.id.video);
             videoView.setWebViewClient(new WebViewClient(){
@@ -246,6 +249,7 @@ public class MediaYoutube extends AppCompatActivity implements View.OnClickListe
             nextArrow.setOnClickListener(this);
 
             WebView webview = (WebView) findViewById(R.id.webview);
+            //String url = "https://www.google.com/search?q="+antiMood+"+"+keyWord+"&btnI";
             String url = "https://www.google.com/search?q="+antiMood+"+"+keyWord;
             webview.setWebViewClient(new MyWebViewClient());
             webview.getSettings().setJavaScriptEnabled(true);
@@ -343,7 +347,6 @@ public class MediaYoutube extends AppCompatActivity implements View.OnClickListe
 
             Intent intent = new Intent(Intent.ACTION_VIEW, uri);
             //startActivity(new Intent(Intent.ACTION_VIEW, uri));
-
             startActivity(intent);
             return false;
         }
