@@ -21,6 +21,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebResourceRequest;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.EditText;
@@ -51,7 +52,7 @@ public class MediaYoutube extends AppCompatActivity implements View.OnClickListe
 
     public String mood;
     public String antiMood;
-    public String keyWord="quotes";
+    public String keyWord;
 
     //firebase auth object
     private FirebaseAuth firebaseAuth;
@@ -177,14 +178,18 @@ public class MediaYoutube extends AppCompatActivity implements View.OnClickListe
             setSupportActionBar(toolbar);
             nextArrow.setOnClickListener(this);
 
-            VideoView videoView =(VideoView)findViewById(R.id.video);
-            MediaController mediaController= new MediaController(this);
-            mediaController.setAnchorView(videoView);
-            Uri uri=Uri.parse("rtsp://r7—sn-4g57kue6.googlevideo.com/Ck0LENy73wIaRAmk3cJBg-iaXhMYDSANFC0k8JRWMOCoAUIJbXYtZ29vZ2xlSARSBXdhdGNoYKK205Ti2LaNVooBC2lZYlRtN201YTlRDA==/9EFB79E36D6A4191F3BF60D01A0AE429B5C9AA32.B774C6D2C0948C3A49A088F9F5CCCFBE34864B29/yt6/1/video.3gp");
-            videoView.setMediaController(mediaController);
-            videoView.setVideoURI(uri);
-            videoView.requestFocus();
-            videoView.start();
+            String frameVideo = "<html><body>Video from YouTube<br><iframe width=\"340\" height=\"300\" src=\"https://www.youtube.com/embed/hhoQqN9oUpo\" frameborder=\"0\" allowfullscreen></body></html>";
+            WebView videoView =(WebView)findViewById(R.id.video);
+            videoView.setWebViewClient(new WebViewClient(){
+                @SuppressWarnings("deprecation")
+                @Override
+                public boolean shouldOverrideUrlLoading(WebView view, String url){
+                    return false;
+                }
+            });
+            WebSettings webSettings = videoView.getSettings();
+            webSettings.setJavaScriptEnabled(true);
+            videoView.loadData(frameVideo, "text/html", "utf-8");
 
         } else if (page == 2) {
             setContentView(R.layout.activity_media);
